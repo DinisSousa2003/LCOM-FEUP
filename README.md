@@ -1,7 +1,6 @@
 # LCOM Project
 
-LCOM Project for group T&lt;m&gt;&lt;n&gt;G&lt;p&gt;&lt;q&gt;.
-
+LCOM Project for group T04G07.
 Group members:
 
 1. Bruna Marques (up202007191@edu.fe.up.pt)
