@@ -42,7 +42,6 @@ int(vg_mode)(uint16_t mode){
   return 0;
 }
 
-
 int (map_video_memory) (uint16_t mode){
   struct minix_mem_range mr;
   unsigned int vram_base;  /* VRAM's physical addresss */
@@ -133,7 +132,6 @@ uint32_t (direct_color_mode_RGB)(uint16_t row, uint16_t col, uint32_t first, uin
 
   return r | g | b;
 }
-
 
 int draw_pattern(uint8_t no_rectangles, uint32_t first, uint8_t step) {
   unsigned int width = x_res / no_rectangles;
