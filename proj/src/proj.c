@@ -7,7 +7,7 @@
 
 #include "video/video.h"
 #include "keyboard/kbc.h"
-#include "pong.h"
+#include "sprites/menu.h"
 
 extern uint8_t scancode;
 
@@ -48,10 +48,10 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }
 
-  int x = 10, y = 10;
+  int x = 0, y = 0;
   //https://web.fe.up.pt/~pfs/aulas/lcom2122/labs/lab5/src/doc/group__xpm.html#ga5b655f0fa14e7c32f6983ba8d0c0d4c3
   xpm_image_t img;
-  xpm_load(PONG, XPM_8_8_8_8, &img);
+  xpm_load(MENU, XPM_8_8_8_8, &img);
   draw_sprite(x, y, img);
   refresh_buffer();
 
