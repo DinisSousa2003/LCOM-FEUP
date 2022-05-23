@@ -9,6 +9,8 @@
 
 #define KBC_TWO_BYTE    0xE0
 
+#define KBC_ESC_KEY 0x81
+
 #define KBC_OUT_BUF 0x60    //value of the "command byte" is read and written from here
 #define KBC_ARG_CMD 0x60
 #define KBC_ST_REG  0x64

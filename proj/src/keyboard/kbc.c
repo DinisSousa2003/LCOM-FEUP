@@ -1,4 +1,4 @@
-#include <kbc.h>
+#include "kbc.h"
 #include <minix/sysutil.h>
 
 //uint8_t scancode;

@@ -1,8 +1,8 @@
 #include <lcom/lcf.h>
-#include <i8042.h>
-
 #include <stdbool.h>
 #include <stdint.h>	
+
+#include "i8042.h"
 
 void (kbc_ih)(void);
 

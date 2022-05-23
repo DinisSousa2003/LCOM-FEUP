@@ -4,6 +4,7 @@
 #include "video.h"
 
 static char *video_mem;
+static char *video_buff;
 
 static unsigned x_res;
 static unsigned y_res;
@@ -75,6 +76,7 @@ int (map_video_memory) (uint16_t mode){
   /* Map memory */
 
   video_mem = vm_map_phys(SELF, (void *)mr.mr_base, vram_size);
+  video_buff = malloc(vram_size);
 
   if(video_mem == MAP_FAILED)
     panic("couldn't map video memory");
@@ -82,19 +84,18 @@ int (map_video_memory) (uint16_t mode){
   return 0;
 }
 
-//JUST FOR TESTING
-int (all_color)(uint32_t color){
-  draw_rectangle(color, 0, 0, x_res, y_res);
-  return 0;
+void (refresh_buffer)() {
+  memcpy((void*)video_mem, video_buff, x_res * y_res * bytes_per_pixel);
 }
 
 int (vg_set_pixel) (uint32_t color, uint16_t x, uint16_t y){
-
-  //paint n bytes with the correspondent part of the color variable
-  for(unsigned i = 0; i < bytes_per_pixel; i++){
-    unsigned pos = x_res*bytes_per_pixel*y + x*bytes_per_pixel + i;
-    video_mem[pos] = (uint8_t) GET_N_BYTE(color, i);
+  if(x < 0 || y < 0 || x > x_res || y > y_res){
+    printf("Pixel out of the screen.\n");
+    return 1;
   }
+
+  void* pos = video_buff + x_res*bytes_per_pixel*y + x*bytes_per_pixel;
+  memcpy(pos, &color, bytes_per_pixel);
 
   return 0;
 }
@@ -133,7 +134,7 @@ uint32_t (direct_color_mode_RGB)(uint16_t row, uint16_t col, uint32_t first, uin
   return r | g | b;
 }
 
-int draw_pattern(uint8_t no_rectangles, uint32_t first, uint8_t step) {
+int (draw_pattern)(uint8_t no_rectangles, uint32_t first, uint8_t step) {
   unsigned int width = x_res / no_rectangles;
   unsigned height = y_res / no_rectangles;
   uint32_t color;
@@ -153,7 +154,8 @@ int draw_pattern(uint8_t no_rectangles, uint32_t first, uint8_t step) {
   return 0;
 }
 
-int draw_sprite(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *sprite){
+int (draw_sprite)(uint16_t x, uint16_t y, xpm_image_t img){
+    uint32_t *sprite = (uint32_t*)img.bytes;
     for (int row = 0; row < img.height; row++){
       for (int col = 0; col < img.width; col++){
       vg_set_pixel(sprite[img.width*row + col], col+x, row+y);
