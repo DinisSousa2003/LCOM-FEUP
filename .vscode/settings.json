@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "sysutil.h": "c"
+        "sysutil.h": "c",
+        "timer.h": "c"
     }
 }

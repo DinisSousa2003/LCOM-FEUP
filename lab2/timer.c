@@ -1,9 +1,10 @@
 #include <lcom/lcf.h>
-#include <lcom/timer.h>
+//#include <lcom/timer.h>
 
 #include <stdint.h>
 
 #include "i8254.h"
+#include "timer.h"
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   /* To be implemented by the students */

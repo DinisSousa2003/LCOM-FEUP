@@ -9,6 +9,8 @@
  * Constants for programming the video card in graphic mode.
  */
 
+#define VIDEO_MODE 0x115
+
 //Call functions - AH
 #define VBE_AH_CALL_FUNCTION 0x4F
 
