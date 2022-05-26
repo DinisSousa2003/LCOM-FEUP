@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "sysutil.h": "c",
-        "timer.h": "c"
+        "timer.h": "c",
+        "player2_selected.H": "cpp"
     }
 }

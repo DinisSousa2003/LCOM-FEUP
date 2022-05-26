@@ -158,7 +158,10 @@ int (draw_sprite)(uint16_t x, uint16_t y, xpm_image_t img){
     uint32_t *sprite = (uint32_t*)img.bytes;
     for (int row = 0; row < img.height; row++){
       for (int col = 0; col < img.width; col++){
-      vg_set_pixel(sprite[img.width*row + col], col+x, row+y);
+        uint32_t color = sprite[img.width*row + col];
+        if(color != TRANSPARENCY_COLOR_8_8_8_8){
+          vg_set_pixel(sprite[img.width*row + col], col+x, row+y);
+        }
     }
   }
   return 0;

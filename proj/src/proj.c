@@ -7,7 +7,8 @@
 
 #include "video/video.h"
 #include "keyboard/kbc.h"
-#include "sprites/menu.h"
+#include "game/handlers.h"
+#include "game/images.h"
 
 extern uint8_t scancode;
 
@@ -18,11 +19,11 @@ int main(int argc, char *argv[]) {
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need it]
-  lcf_trace_calls("/home/lcom/labs/lab2/trace.txt");
+  lcf_trace_calls("/home/lcom/labs/proj/trace.txt");
 
   // enables to save the output of printf function calls on a file
   // [comment this out if you don't want/need it]
-  lcf_log_output("/home/lcom/labs/lab2/output.txt");
+  lcf_log_output("/home/lcom/labs/proj/output.txt");
 
   // handles control over to LCF
   // [LCF handles command line arguments and invokes the right function]
@@ -40,12 +41,14 @@ int main(int argc, char *argv[]) {
 int(proj_main_loop)(int argc, char* argv[])
 {
   /*initialize graphic mode*/
+  
   map_video_memory(VIDEO_MODE);
   if(vg_mode(VIDEO_MODE) != OK){
     vg_exit();
     printf("Failed to go into graphic mode.\n");
     return 1;
   }
+  
 
   int ipc_status;
   message msg;
@@ -53,7 +56,6 @@ int(proj_main_loop)(int argc, char* argv[])
 
   uint8_t timer_int_bit = 0;
   uint8_t kbc_int_bit = 1; 
-  uint8_t mouse_int_bit = 2;
 
   if (kbd_subscribe_int(&kbc_int_bit) != OK){
     printf("Error subscribing to keyboard.\n");
@@ -64,14 +66,10 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   } 
 
-  /*printing menu, to erase later*/
-  int x = 0, y = 0;
-  //https://web.fe.up.pt/~pfs/aulas/lcom2122/labs/lab5/src/doc/group__xpm.html#ga5b655f0fa14e7c32f6983ba8d0c0d4c3
-  xpm_image_t img;
-  xpm_load(MENU, XPM_8_8_8_8, &img);
-  draw_sprite(x, y, img);
-  refresh_buffer();
-  
+  load_all_images();
+
+  draw_sprite(0, 0, game_images[MENU_IMG]);
+
   while( scancode != KBC_ESC_KEY ) { //terminar quando o scancode é 0x81
       /* Get a request message. */
       if ( (r = driver_receive(ANY, &msg, &ipc_status)) != OK ) { 
@@ -83,9 +81,13 @@ int(proj_main_loop)(int argc, char* argv[])
               case HARDWARE: /* hardware interrupt notification */				
                   if (msg.m_notify.interrupts & BIT(kbc_int_bit)) { /* subscribed interrupt */
                       kbc_ih();
+                      mainHandler(KEYBOARD);
                   }
+                  
                   if (msg.m_notify.interrupts & BIT(timer_int_bit)) { /* subscribed interrupt */
                       timer_int_handler();
+                      refresh_buffer();
+                      //mainHandler(TIMER);
                   }
                   break;
               default:
@@ -97,10 +99,12 @@ int(proj_main_loop)(int argc, char* argv[])
   }
 
   //back to text
+  
   if(vg_exit() != OK){
     printf("Error exiting video.\n");
     return 1;
   }
+  
 
   if(timer_unsubscribe_int() != OK){
     printf("Error unsubscribing KBC.\n");
