@@ -19,3 +19,8 @@ int (getCurrentEntry)(){
     return menu_entries[curEntry];
 }
 
+void (drawMenu)(){
+    draw_sprite(0, 0, game_images[MENU_IMG]);
+    draw_sprite(0, 0, game_images[menu_entries[curEntry]]);
+}
+

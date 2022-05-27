@@ -50,5 +50,7 @@
 #define KBC_ENA_OBF_MOUSE   BIT(1)
 #define KBC_ENA_OBF_KB      BIT(0)
 
+#define KEY_UP 0x48
+#define KEY_DOWN 0x50
 
 #endif

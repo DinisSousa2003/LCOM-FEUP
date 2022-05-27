@@ -10,7 +10,10 @@
 #include "game/handlers.h"
 #include "game/images.h"
 
-extern uint8_t scancode;
+extern uint8_t scancode[2];
+extern uint8_t data;
+extern bool full_code_ready, kbd_valid;
+
 
 
 int main(int argc, char *argv[]) {
@@ -68,9 +71,10 @@ int(proj_main_loop)(int argc, char* argv[])
 
   load_all_images();
 
-  draw_sprite(0, 0, game_images[MENU_IMG]);
+  drawMenu();
+  refresh_buffer();
 
-  while( scancode != KBC_ESC_KEY ) { //terminar quando o scancode é 0x81
+  while( data != KBC_ESC_KEY ) { //terminar quando o scancode é 0x81
       /* Get a request message. */
       if ( (r = driver_receive(ANY, &msg, &ipc_status)) != OK ) { 
           printf("driver_receive failed with: %d", r);
@@ -81,13 +85,13 @@ int(proj_main_loop)(int argc, char* argv[])
               case HARDWARE: /* hardware interrupt notification */				
                   if (msg.m_notify.interrupts & BIT(kbc_int_bit)) { /* subscribed interrupt */
                       kbc_ih();
-                      mainHandler(KEYBOARD);
+                      if (kbd_valid & full_code_ready) mainHandler(KEYBOARD);
                   }
                   
                   if (msg.m_notify.interrupts & BIT(timer_int_bit)) { /* subscribed interrupt */
                       timer_int_handler();
                       refresh_buffer();
-                      //mainHandler(TIMER);
+                      mainHandler(TIMER);
                   }
                   break;
               default:

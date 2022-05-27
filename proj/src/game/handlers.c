@@ -1,5 +1,7 @@
 #include "handlers.h"
 
+extern uint8_t scancode[2];
+
 void (mainHandler)(int device){
     switch (state){
         case MENU: {
@@ -24,11 +26,16 @@ void (mainHandler)(int device){
 void (menuHandler)(int device){
     switch (device){
         case KEYBOARD: {
-            draw_sprite(0, 0, game_images[getCurrentEntry()]);
+            if(scancode[0] == KBC_TWO_BYTE && scancode[1] == KEY_UP){
+                backMenuEntry();
+            }
+            else if(scancode[0] == KBC_TWO_BYTE && scancode[1] == KEY_DOWN){
+                addMenuEntry();
+            }
+            drawMenu();
             break;
         }
-        case TIMER: {
+        default:
             break;
-        }
     }
 }
