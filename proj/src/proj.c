@@ -9,6 +9,7 @@
 #include "keyboard/kbc.h"
 #include "game/handlers.h"
 #include "game/images.h"
+#include "game/view.h"
 
 extern uint8_t scancode[2];
 extern uint8_t data;
@@ -51,7 +52,6 @@ int(proj_main_loop)(int argc, char* argv[])
     printf("Failed to go into graphic mode.\n");
     return 1;
   }
-  
 
   int ipc_status;
   message msg;
@@ -66,6 +66,7 @@ int(proj_main_loop)(int argc, char* argv[])
   }
 
   if (timer_subscribe_int(&timer_int_bit) != OK){
+     printf("Error subscribing to timer.\n");
     return 1;
   } 
 
@@ -90,7 +91,6 @@ int(proj_main_loop)(int argc, char* argv[])
                   
                   if (msg.m_notify.interrupts & BIT(timer_int_bit)) { /* subscribed interrupt */
                       timer_int_handler();
-                      refresh_buffer();
                       mainHandler(TIMER);
                   }
                   break;

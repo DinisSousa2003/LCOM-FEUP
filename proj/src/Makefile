@@ -2,7 +2,7 @@
 PROG=proj
 
 # source code files to be compiled
-SRCS = proj.c utils.c video/video.c keyboard/kbc.c timer/timer.c game/handlers.c game/images.c game/model.c
+SRCS = proj.c utils.c video/video.c keyboard/kbc.c timer/timer.c game/handlers.c game/images.c game/model.c game/view.c
 
 CFLAGS += -pedantic -D__LCOM_OPTIMIZED__
 
@@ -21,6 +21,8 @@ game/images.o: game/images.c game/images.h
 		cc $(CFLAGS) -o game/images.o -c game/images.c 
 game/model.o: game/model.c game/model.h
 		cc $(CFLAGS) -o game/model.o -c game/model.c 
+game/view.o: game/view.c game/view.h
+		cc $(CFLAGS) -o game/view.o -c game/view.c 
 
 # include LCOM's makefile that does all the "heavy lifting"
 .include <minix.lcom.mk>

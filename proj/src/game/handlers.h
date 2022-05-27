@@ -5,8 +5,11 @@
 
 #include "model.h"
 #include "images.h"
+#include "view.h"       
 #include "../video/video.h"
 #include "../keyboard/kbc.h"
+
+#define REFRESH_RATE (60/30)
 
 enum devices {
     TIMER,

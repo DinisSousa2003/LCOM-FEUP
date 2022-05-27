@@ -1,9 +1,11 @@
 #include "model.h"
 
+/*MENU MODEL*/
+
 #define ENTRIES 3
 
-static int menu_entries[ENTRIES] = {PLAYER1_SELECTED_IMG, PLAYER2_SELECTED_IMG, ABOUT_SELECTED_IMG};
-static int curEntry = 0;
+int menu_entries[ENTRIES] = {PLAYER1_SELECTED_IMG, PLAYER2_SELECTED_IMG, ABOUT_SELECTED_IMG};
+int curEntry = 0;
 
 
 void (addMenuEntry)(){
@@ -16,12 +18,27 @@ void (backMenuEntry)(){
     curEntry--;
 }
 
-int (getCurrentEntry)(){
+int (getCurrentEntryImg)(){
     return menu_entries[curEntry];
 }
 
-void (drawMenu)(){
-    draw_sprite(0, 0, game_images[MENU_IMG]);
-    draw_sprite(0, 0, game_images[menu_entries[curEntry]]);
+/*GAME MODEL*/
+
+int player_pos_x = 500;
+int player_pos_y = 300;
+
+int (getPlayerX)(){
+    return player_pos_x;
 }
 
+int (getPlayerY)(){
+    return player_pos_y;
+}
+
+void (playerDown)(){
+    player_pos_y += 5;
+}
+
+void (playerUp)(){
+    player_pos_y -= 5;
+}

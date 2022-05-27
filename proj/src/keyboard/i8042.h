@@ -53,5 +53,9 @@
 #define KEY_UP 0x48
 #define KEY_DOWN 0x50
 #define KEY_ENTER 0x1C
+#define KEY_W   0x11
+#define KEY_A   0x1e
+#define KEY_S   0x1F
+#define KEY_D   0x20
 
 #endif

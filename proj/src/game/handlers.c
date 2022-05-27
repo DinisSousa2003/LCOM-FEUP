@@ -2,7 +2,7 @@
 
 extern uint8_t scancode[2];
 extern int menu_entries[];
-extern int curEntry;
+extern int counter;
 
 void (mainHandler)(int device){
     switch (state){
@@ -35,22 +35,26 @@ void (menuHandler)(int device){
                 addMenuEntry();
             }
             else if(scancode[0] == KEY_ENTER){
-                if(menu_entries[curEntry] == PLAYER1_SELECTED_IMG){
+                if(getCurrentEntryImg() == PLAYER1_SELECTED_IMG){
                     state = ONEPGAME;
-                    draw_pattern(10, 0, 100);
-                    refresh_buffer();
                     return;
                 }
-                else if(menu_entries[curEntry] == PLAYER2_SELECTED_IMG){
+                else if(getCurrentEntryImg() == PLAYER2_SELECTED_IMG){
                     state = TWOPGAME;
                     return;
                 }
-                else if(menu_entries[curEntry] == PLAYER2_SELECTED_IMG){
+                else if(getCurrentEntryImg() == ABOUT){
                     state = ABOUT;
                     return;
                 }
             }
-            drawMenu();
+            break;
+        }
+        case TIMER: {
+            if(counter % REFRESH_RATE == 0){
+                drawMenu();
+                refresh_buffer();
+            }
             break;
         }
         default:
@@ -59,6 +63,38 @@ void (menuHandler)(int device){
 }
 
 void (gameOnePlayerHandler)(int device){
+    switch (device){
+        case KEYBOARD: {
+            switch (scancode[0])
+            {
+            case KEY_W:
+                playerUp();
+                break;
+            case KEY_S:
+                playerDown();
+                break;
+            case KEY_A:
+                //go left
+                break;
+            case KEY_D:
+                //go right
+                break;
+            default:
+                break;
+            }
+            break;
+        }
+        case TIMER: {
+            if(counter % REFRESH_RATE == 0){
+                draw_rectangle(0, 0, 0, 800, 600);
+                drawPlayer();
+                refresh_buffer();
+            }
+            break;
+        }
+        default:
+            break;
+    }
     return;
 }
 void (gameTwoPlayersHandler)(int device){
