@@ -24,7 +24,7 @@ int (getCurrentEntryImg)(){
 
 /*GAME MODEL*/
 
-int player_pos_x = 500;
+int player_pos_x = 650;
 int player_pos_y = 300;
 
 int (getPlayerX)(){
@@ -36,9 +36,9 @@ int (getPlayerY)(){
 }
 
 void (playerDown)(){
-    player_pos_y += 5;
+    player_pos_y += 15;
 }
 
 void (playerUp)(){
-    player_pos_y -= 5;
+    player_pos_y -= 15;
 }

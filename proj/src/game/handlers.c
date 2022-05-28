@@ -4,6 +4,8 @@ extern uint8_t scancode[2];
 extern int menu_entries[];
 extern int counter;
 
+state_t state = MENU;
+
 void (mainHandler)(int device){
     switch (state){
         case MENU: {
@@ -37,15 +39,18 @@ void (menuHandler)(int device){
             else if(scancode[0] == KEY_ENTER){
                 if(getCurrentEntryImg() == PLAYER1_SELECTED_IMG){
                     state = ONEPGAME;
-                    return;
+                    clear_buffer();
+                    refresh_buffer();
                 }
                 else if(getCurrentEntryImg() == PLAYER2_SELECTED_IMG){
                     state = TWOPGAME;
-                    return;
+                    clear_buffer();
+                    refresh_buffer();
                 }
                 else if(getCurrentEntryImg() == ABOUT){
                     state = ABOUT;
-                    return;
+                    clear_buffer();
+                    refresh_buffer();
                 }
             }
             break;
@@ -63,6 +68,7 @@ void (menuHandler)(int device){
 }
 
 void (gameOnePlayerHandler)(int device){
+    printf("Player.\n");
     switch (device){
         case KEYBOARD: {
             switch (scancode[0])
@@ -86,8 +92,7 @@ void (gameOnePlayerHandler)(int device){
         }
         case TIMER: {
             if(counter % REFRESH_RATE == 0){
-                draw_rectangle(0, 0, 0, 800, 600);
-                drawPlayer();
+                drawGame();
                 refresh_buffer();
             }
             break;
@@ -95,7 +100,6 @@ void (gameOnePlayerHandler)(int device){
         default:
             break;
     }
-    return;
 }
 void (gameTwoPlayersHandler)(int device){
     return;

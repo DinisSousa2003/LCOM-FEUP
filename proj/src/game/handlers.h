@@ -24,7 +24,6 @@ typedef enum states {
     ABOUT
 } state_t;
 
-static state_t state = MENU;
 
 void (mainHandler)(int device);
 void (menuHandler)(int device);

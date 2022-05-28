@@ -15,8 +15,6 @@ extern uint8_t scancode[2];
 extern uint8_t data;
 extern bool full_code_ready, kbd_valid;
 
-
-
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -52,6 +50,7 @@ int(proj_main_loop)(int argc, char* argv[])
     printf("Failed to go into graphic mode.\n");
     return 1;
   }
+  
 
   int ipc_status;
   message msg;
@@ -103,7 +102,6 @@ int(proj_main_loop)(int argc, char* argv[])
   }
 
   //back to text
-  
   if(vg_exit() != OK){
     printf("Error exiting video.\n");
     return 1;

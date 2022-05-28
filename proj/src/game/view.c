@@ -8,5 +8,10 @@ void (drawMenu)(){
 }
 
 void (drawPlayer)(){
-    vg_draw_rectangle(getPlayerX(), getPlayerY(), 20, 40, 0xFF0000);
+    draw_rectangle(0xffffff, getPlayerX(), getPlayerY(), 20, 40);
+}
+
+void (drawGame)(){
+    draw_rectangle(0, 0, 0, 800, 600);
+    drawPlayer();
 }

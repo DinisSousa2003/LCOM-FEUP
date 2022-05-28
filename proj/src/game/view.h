@@ -9,3 +9,4 @@
 
 void (drawMenu)();
 void (drawPlayer)();
+void (drawGame)();
