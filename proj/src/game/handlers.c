@@ -93,6 +93,8 @@ void (gameOnePlayerHandler)(int device){
         case TIMER: {
             if(counter % REFRESH_RATE == 0){
                 drawGame();
+                drawArena();
+
                 refresh_buffer();
             }
             break;

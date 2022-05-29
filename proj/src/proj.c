@@ -50,7 +50,6 @@ int(proj_main_loop)(int argc, char* argv[])
     printf("Failed to go into graphic mode.\n");
     return 1;
   }
-  
 
   int ipc_status;
   message msg;

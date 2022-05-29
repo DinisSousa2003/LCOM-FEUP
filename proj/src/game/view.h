@@ -10,3 +10,4 @@
 void (drawMenu)();
 void (drawPlayer)();
 void (drawGame)();
+void (drawArena)();

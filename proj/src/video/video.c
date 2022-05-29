@@ -104,6 +104,14 @@ int (vg_set_pixel) (uint32_t color, uint16_t x, uint16_t y){
   return 0;
 }
 
+int (vg_draw_vline) (uint16_t x, uint16_t y, uint16_t len, uint32_t color){
+
+  for (uint16_t i = 0; i < len; i++){
+    vg_set_pixel(color, x, y+i);
+  }
+  return 0;
+}
+
 int (vg_draw_hline) (uint16_t x, uint16_t y, uint16_t len, uint32_t color){
 
   for (uint16_t i = 0; i < len; i++){

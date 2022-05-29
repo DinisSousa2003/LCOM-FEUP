@@ -26,6 +26,9 @@ int (getCurrentEntryImg)(){
 
 int player_pos_x = 650;
 int player_pos_y = 300;
+int arena_max_y = 500;
+int arena_min_y = 100;
+int player_height = 40;
 
 int (getPlayerX)(){
     return player_pos_x;
@@ -36,9 +39,21 @@ int (getPlayerY)(){
 }
 
 void (playerDown)(){
-    player_pos_y += 15;
+    if(getPlayerY() <= (arena_max_y-player_height-15)){
+        player_pos_y += 15;
+    }
+    else if (getPlayerY() > (arena_max_y-player_height-15))
+    {
+        player_pos_y += (arena_max_y-getPlayerY()-player_height);
+    }
 }
 
 void (playerUp)(){
-    player_pos_y -= 15;
+    if(getPlayerY() >= (arena_min_y+15)){
+        player_pos_y -= 15;
+    }
+    else if (getPlayerY() < (arena_min_y+15))
+    {
+        player_pos_y -= (getPlayerY()-arena_min_y);
+    }
 }
