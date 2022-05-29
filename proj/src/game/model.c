@@ -24,36 +24,65 @@ int (getCurrentEntryImg)(){
 
 /*GAME MODEL*/
 
-int player_pos_x = 650;
-int player_pos_y = 300;
-int arena_max_y = 500;
-int arena_min_y = 100;
-int player_height = 40;
+struct Player player = {650, 300, 0xffffff, 15, 40, 20};
 
-int (getPlayerX)(){
-    return player_pos_x;
+struct Ball ball = {398, 298, 0xffffff, 20, 10, 2, 2};
+
+struct Arena arena = {500, 100, 750, 50, 400, 700};
+
+struct Player getPlayer(){
+    return player;
 }
 
-int (getPlayerY)(){
-    return player_pos_y;
+struct Arena getArena(){
+    return arena;
+}
+
+struct Ball getBall(){
+    return ball;
 }
 
 void (playerDown)(){
-    if(getPlayerY() <= (arena_max_y-player_height-15)){
-        player_pos_y += 15;
+    if(player.y_pos <= (arena.max_y - player.height - player.vel)){
+        player.y_pos += player.vel;
     }
-    else if (getPlayerY() > (arena_max_y-player_height-15))
+    else if (player.y_pos > (arena.max_y - player.height - player.vel))
     {
-        player_pos_y += (arena_max_y-getPlayerY()-player_height);
+        player.y_pos += (arena.max_y - player.y_pos - player.height);
     }
 }
 
 void (playerUp)(){
-    if(getPlayerY() >= (arena_min_y+15)){
-        player_pos_y -= 15;
+    if(player.y_pos >= (arena.min_y + player.vel)){
+        player.y_pos -= player.vel;
     }
-    else if (getPlayerY() < (arena_min_y+15))
+    else if (player.y_pos < (arena.min_y + player.vel))
     {
-        player_pos_y -= (getPlayerY()-arena_min_y);
+        player.y_pos -= (player.y_pos - arena.min_y);
     }
+}
+
+bool ballCollidesPlayer(){
+    if(!((ball.y_pos + ball.height >= player.y_pos) && (ball.y_pos <= player.y_pos + player.height))){
+        return false;
+    }
+    if(!((ball.x_pos + ball.width >= player.x_pos) && (ball.x_pos <= player.x_pos + player.width))){
+        return false;
+    }
+    return true;
+}
+
+void (moveBall)(){
+    if(ball.x_pos + ball.vel_x < arena.min_x || ball.x_pos + ball.vel_x > arena.max_x ){
+        ball.vel_x = -ball.vel_x;
+    }
+    if(ball.y_pos + ball.vel_y < arena.min_y || ball.y_pos + ball.vel_y > arena.max_y ){
+        ball.vel_y = -ball.vel_y;
+    }
+    if(ballCollidesPlayer()){
+        ball.vel_x = -ball.vel_x;
+    }
+
+    ball.x_pos += ball.vel_x;
+    ball.y_pos += ball.vel_y;
 }

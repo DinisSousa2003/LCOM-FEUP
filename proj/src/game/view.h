@@ -9,5 +9,6 @@
 
 void (drawMenu)();
 void (drawPlayer)();
+void (drawBall)();
 void (drawGame)();
 void (drawArena)();

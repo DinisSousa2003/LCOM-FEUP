@@ -92,6 +92,8 @@ void (gameOnePlayerHandler)(int device){
         }
         case TIMER: {
             if(counter % REFRESH_RATE == 0){
+                moveBall();
+
                 drawGame();
                 drawArena();
 
