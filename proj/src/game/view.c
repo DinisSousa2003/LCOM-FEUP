@@ -31,13 +31,16 @@ void (drawGame)(){
 
 void (drawArena)(){
     vg_draw_hline(arena.min_x, arena.min_y, arena.width, 0xffffff);
-    vg_draw_vline(arena.min_x, arena.min_y, arena.height, 0xffffff);
+    vg_draw_vline(arena.min_x, arena.min_y, 170, 0xffffff);
+    vg_draw_vline(arena.min_x, arena.min_y + 230, 170, 0xffffff);
 
-    for (size_t i = 0; i <= 400; i+=30)
+    for (int i = 0; i <= arena.height; i+=30)
     {
         vg_draw_vline(400, 100+i, 10, 0xffffff);
     }
 
     vg_draw_hline(arena.min_x, arena.max_y, arena.width, 0xffffff);
-    vg_draw_vline(arena.max_x, arena.min_y, arena.height, 0xffffff);
+    vg_draw_vline(arena.max_x, arena.min_y, 170, 0xffffff);
+    vg_draw_vline(arena.max_x, arena.min_y + 230, 170, 0xffffff);
+
 }
