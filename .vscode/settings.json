@@ -16,6 +16,19 @@
         "xutility": "c",
         "__functional_base": "c",
         "locale": "c",
-        "thread": "c"
+        "thread": "c",
+        "algorithm": "c",
+        "atomic": "c",
+        "charconv": "c",
+        "chrono": "c",
+        "iterator": "c",
+        "list": "c",
+        "xhash": "c",
+        "xlocale": "c",
+        "xmemory": "c",
+        "xtree": "c",
+        "__bit_reference": "c",
+        "map": "c",
+        "unordered_map": "c"
     }
 }

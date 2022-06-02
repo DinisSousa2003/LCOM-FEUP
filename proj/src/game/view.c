@@ -12,11 +12,15 @@ void (drawMenu)(){
 
 /*GAME_VIEW*/
 extern struct Player player;
+extern struct Player PCplayer;
 extern struct Arena arena;
 extern struct Ball ball;
 
 void (drawPlayer)(){
     draw_rectangle(player.color, player.x_pos, player.y_pos, player.width, player.height);
+}
+void (drawPCPlayer)(){
+    draw_rectangle(PCplayer.color, PCplayer.x_pos, PCplayer.y_pos, PCplayer.width, PCplayer.height);
 }
 
 void (drawBall)(){
@@ -26,6 +30,7 @@ void (drawBall)(){
 void (drawGame)(){
     draw_rectangle(0, 0, 0, 800, 600);
     drawPlayer();
+    drawPCPlayer();
     drawBall();
 }
 

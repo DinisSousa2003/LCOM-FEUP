@@ -43,3 +43,5 @@ struct Ball (getBall)();
 void (playerUp)();
 void (playerDown)();
 void (moveBall)();
+bool (goal)();
+void movePCplayer();

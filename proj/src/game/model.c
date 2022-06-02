@@ -26,7 +26,9 @@ int (getCurrentEntryImg)(){
 
 struct Player player = {650, 300, 0xffffff, 15, 40, 20};
 
-struct Ball ball = {398, 298, 0xffffff, 20, 10, 2, 2};
+struct Player PCplayer = {150, 300, 0xffffff, 5, 40, 20};
+
+struct Ball ball = {398, 298, 0xffffff, 20, 10, 4, 4};
 
 struct Arena arena = {500, 100, 750, 50, 400, 700};
 
@@ -62,6 +64,19 @@ void (playerUp)(){
     }
 }
 
+bool (goal)(){
+    if(ball.x_pos == arena.min_x && (ball.y_pos >=270 && ball.y_pos <= 330)){
+        //pontuacao para player 2
+        return true;
+    }
+     if(ball.x_pos == arena.max_x && (ball.y_pos >=270 && ball.y_pos <= 330)){
+        //pontuacao para player 1
+        return true;
+    }
+    return false;
+
+}
+
 bool ballCollidesPlayer(){
     if(!((ball.y_pos + ball.height >= player.y_pos) && (ball.y_pos <= player.y_pos + player.height))){
         return false;
@@ -85,4 +100,27 @@ void (moveBall)(){
 
     ball.x_pos += ball.vel_x;
     ball.y_pos += ball.vel_y;
+}
+
+void movePCplayer(){
+    //pc player down
+    if(ball.vel_y>0){
+        if(PCplayer.y_pos <= (arena.max_y - PCplayer.height - PCplayer.vel)){
+            PCplayer.y_pos += PCplayer.vel;
+        }
+        else if (PCplayer.y_pos > (arena.max_y - PCplayer.height - PCplayer.vel))
+        {
+            PCplayer.y_pos += (arena.max_y - PCplayer.y_pos - PCplayer.height);
+        }
+    }
+    //pc player up
+    else if(ball.vel_y<0){
+        if(PCplayer.y_pos >= (arena.min_y + PCplayer.vel)){
+            PCplayer.y_pos -= PCplayer.vel;
+        }
+        else if (PCplayer.y_pos < (arena.min_y + PCplayer.vel))
+        {
+            PCplayer.y_pos -= (PCplayer.y_pos - arena.min_y);
+        }
+    }
 }
