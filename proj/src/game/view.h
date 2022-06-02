@@ -8,6 +8,7 @@
 #include "../video/video.h"
 
 void (drawMenu)();
+void (drawBoard)();
 void (drawPlayer)();
 void (drawBall)();
 void (drawGame)();

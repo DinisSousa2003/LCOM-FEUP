@@ -16,6 +16,13 @@ extern struct Player player2;
 extern struct Arena arena;
 extern struct Ball ball;
 
+void (drawBoard)(){
+    //so desenha, falta logistica
+    draw_sprite(300, 10, game_images[NUMBER0_IMG]);
+    draw_sprite(450, 10, game_images[NUMBER0_IMG]);
+}
+
+
 void (drawPlayer)(){
     draw_rectangle(player.color, player.x_pos, player.y_pos, player.width, player.height);
 }
@@ -35,6 +42,10 @@ void (drawGame)(){
 }
 
 void (drawArena)(){
+    drawBoard(); //isto vai sair daqui
+    //bar of score
+    vg_draw_hline((arena.width/2)+arena.min_x-15, 50, 30, 0xffffff);
+
     vg_draw_hline(arena.min_x, arena.min_y, arena.width, 0xffffff);
     vg_draw_vline(arena.min_x, arena.min_y, 170, 0xffffff);
     vg_draw_vline(arena.min_x, arena.min_y + 230, 170, 0xffffff);
@@ -47,5 +58,4 @@ void (drawArena)(){
     vg_draw_hline(arena.min_x, arena.max_y, arena.width, 0xffffff);
     vg_draw_vline(arena.max_x, arena.min_y, 170, 0xffffff);
     vg_draw_vline(arena.max_x, arena.min_y + 230, 170, 0xffffff);
-
 }

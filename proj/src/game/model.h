@@ -16,6 +16,7 @@ struct Player{
     int vel;
     int height;
     int width;
+    int score;
 };
 
 struct Ball{

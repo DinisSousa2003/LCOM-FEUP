@@ -24,9 +24,9 @@ int (getCurrentEntryImg)(){
 
 /*GAME MODEL*/
 
-struct Player player = {650, 300, 0xffffff, 15, 40, 20};
+struct Player player = {650, 300, 0xffffff, 15, 40, 20, 0};
 
-struct Player player2 = {150, 300, 0xffffff, 5, 40, 20};
+struct Player player2 = {150, 300, 0xffffff, 5, 40, 20, 0};
 
 struct Ball ball = {398, 298, 0xffffff, 20, 10, 4, 4};
 
@@ -66,11 +66,11 @@ void (playerUp)(){
 
 bool goal(){
     if(ball.x_pos == arena.min_x && (ball.y_pos >=270 && ball.y_pos <= 330)){
-        //pontuacao para player 2
+        player2.score++;
         return true;
     }
      if(ball.x_pos == arena.max_x && (ball.y_pos >=270 && ball.y_pos <= 330)){
-        //pontuacao para player 1
+        player.score++;
         return true;
     }
     return false;
