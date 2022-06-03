@@ -24,7 +24,7 @@ int (getCurrentEntryImg)(){
 
 /*GAME MODEL*/
 
-struct Player player = {650, 300, 0xffffff, 15, 40, 20, 0};
+struct Player player = {650, 300, 0xffffff, 20, 40, 20, 0};
 
 struct Player player2 = {150, 300, 0xffffff, 5, 40, 20, 0};
 
@@ -66,11 +66,11 @@ void (playerUp)(){
 
 bool goal(){
     if(ball.x_pos == arena.min_x && (ball.y_pos >=270 && ball.y_pos <= 330)){
-        player2.score++;
+        player.score++;
         return true;
     }
      if(ball.x_pos == arena.max_x && (ball.y_pos >=270 && ball.y_pos <= 330)){
-        player.score++;
+        player2.score++;
         return true;
     }
     return false;
@@ -96,10 +96,10 @@ bool ballCollidesPlayer2(){
     return true;
 }
 void (moveBall)(){
-    if(ball.x_pos + ball.vel_x < arena.min_x || ball.x_pos + ball.vel_x > arena.max_x ){
+    if(ball.x_pos + ball.vel_x <= arena.min_x || ball.x_pos + ball.vel_x >= arena.max_x ){
         ball.vel_x = -ball.vel_x;
     }
-    if(ball.y_pos + ball.vel_y < arena.min_y || ball.y_pos + ball.vel_y > arena.max_y ){
+    if(ball.y_pos + ball.vel_y <= arena.min_y || ball.y_pos + ball.vel_y >= arena.max_y ){
         ball.vel_y = -ball.vel_y;
     }
     if(ballCollidesPlayer()){
@@ -108,6 +108,7 @@ void (moveBall)(){
     if(ballCollidesPlayer2()){
         ball.vel_x = -ball.vel_x;
     }
+    goal();
 
     ball.x_pos += ball.vel_x;
     ball.y_pos += ball.vel_y;
@@ -125,7 +126,7 @@ void (movePlayer2)(){
             player2.y_pos += (arena.max_y - player2.y_pos - player2.height);
         }
     }
-    //pc player up
+    //pc player up (code duplicate)
     else if(ball.vel_y<0){
         if(player2.y_pos >= (arena.min_y + player2.vel)){
             player2.y_pos -= player2.vel;

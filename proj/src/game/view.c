@@ -16,10 +16,34 @@ extern struct Player player2;
 extern struct Arena arena;
 extern struct Ball ball;
 
+enum game_image_t getNumberImg(int score){ 
+    switch (score)
+    {
+    case 0:
+        return NUMBER0_IMG;
+        break;
+    case 1:
+        return NUMBER1_IMG;
+        break;
+    case 2:
+        return NUMBER2_IMG;
+        break;
+    case 3:
+        return NUMBER3_IMG;
+        break;
+    case 4:
+        return NUMBER4_IMG;
+        break;
+    default:
+        return NUMBER5_IMG;
+        break;
+    }
+}
+
+
 void (drawBoard)(){
-    //so desenha, falta logistica
-    draw_sprite(300, 10, game_images[NUMBER0_IMG]);
-    draw_sprite(450, 10, game_images[NUMBER0_IMG]);
+    draw_sprite(300, 10, game_images[getNumberImg(player.score)]);
+    draw_sprite(450, 10, game_images[getNumberImg(player2.score)]);
 }
 
 
