@@ -66,8 +66,8 @@ void (drawArena)(){
     vg_draw_hline((arena.width/2)+arena.min_x-15, 50, 30, 0xffffff);
 
     vg_draw_hline(arena.min_x, arena.min_y, arena.width, 0xffffff);
-    vg_draw_vline(arena.min_x, arena.min_y, 170, 0xffffff);
-    vg_draw_vline(arena.min_x, arena.min_y + 230, 170, 0xffffff);
+    vg_draw_vline(arena.min_x, arena.min_y, 160, 0xffffff);
+    vg_draw_vline(arena.min_x, arena.min_y + 240, 160, 0xffffff);
 
     for (int i = 0; i <= arena.height; i+=30)
     {
@@ -75,6 +75,6 @@ void (drawArena)(){
     }
 
     vg_draw_hline(arena.min_x, arena.max_y, arena.width, 0xffffff);
-    vg_draw_vline(arena.max_x, arena.min_y, 170, 0xffffff);
-    vg_draw_vline(arena.max_x, arena.min_y + 230, 170, 0xffffff);
+    vg_draw_vline(arena.max_x, arena.min_y, 160, 0xffffff);
+    vg_draw_vline(arena.max_x, arena.min_y + 240, 160, 0xffffff);
 }

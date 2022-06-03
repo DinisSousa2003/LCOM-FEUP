@@ -27,8 +27,7 @@ int (getCurrentEntryImg)(){
 int player1_initial_x=650, player1_initial_y=300;
 int player2_initial_x=150, player2_initial_y=300;
 int ball_initial_x=400,ball_initial_y=300;
-
-struct Player player = {650, 300, 0xffffff, 20, 40, 20, 0};
+struct Player player = {650, 300, 0xffffff, 30, 40, 20, 0};
 
 struct Player player2 = {150, 300, 0xffffff, 5, 40, 20, 0};
 
@@ -102,7 +101,7 @@ bool ballCollidesPlayer2(){
 }
 void (moveBall)(){
     
-    if (!(270 < ball.y_pos && ball.y_pos < 330))
+    if (!(260 < ball.y_pos && ball.y_pos < 340))
     {
         if(ball.x_pos + ball.vel_x <= arena.min_x || ball.x_pos + ball.vel_x >= arena.max_x )
         {
