@@ -24,11 +24,15 @@ int (getCurrentEntryImg)(){
 
 /*GAME MODEL*/
 
+int player1_initial_x=650, player1_initial_y=300;
+int player2_initial_x=150, player2_initial_y=300;
+int ball_initial_x=400,ball_initial_y=300;
+
 struct Player player = {650, 300, 0xffffff, 20, 40, 20, 0};
 
 struct Player player2 = {150, 300, 0xffffff, 5, 40, 20, 0};
 
-struct Ball ball = {398, 298, 0xffffff, 20, 10, 4, 4};
+struct Ball ball = {400, 300, 0xffffff, 10, 10, 5, 5};
 
 struct Arena arena = {500, 100, 750, 50, 400, 700};
 
@@ -44,23 +48,24 @@ struct Ball getBall(){
     return ball;
 }
 
-void (playerDown)(){
-    if(player.y_pos <= (arena.max_y - player.height - player.vel)){
-        player.y_pos += player.vel;
+
+void (playerDown)(struct Player *p){
+    if(p->y_pos <= (arena.max_y - p->height - p->vel)){
+        p->y_pos += p->vel;
     }
-    else if (player.y_pos > (arena.max_y - player.height - player.vel))
+    else if (p->y_pos > (arena.max_y - p->height - p->vel))
     {
-        player.y_pos += (arena.max_y - player.y_pos - player.height);
+        p->y_pos += (arena.max_y - p->y_pos - p->height);
     }
 }
 
-void (playerUp)(){
-    if(player.y_pos >= (arena.min_y + player.vel)){
-        player.y_pos -= player.vel;
+void (playerUp)(struct Player *p){
+    if(p->y_pos >= (arena.min_y + p->vel)){
+        p->y_pos -= p->vel;
     }
-    else if (player.y_pos < (arena.min_y + player.vel))
+    else if (p->y_pos < (arena.min_y + p->vel))
     {
-        player.y_pos -= (player.y_pos - arena.min_y);
+        p->y_pos -= (p->y_pos - arena.min_y);
     }
 }
 
@@ -108,32 +113,26 @@ void (moveBall)(){
     if(ballCollidesPlayer2()){
         ball.vel_x = -ball.vel_x;
     }
-    goal();
-
     ball.x_pos += ball.vel_x;
     ball.y_pos += ball.vel_y;
+    if(goal()){
+        player.x_pos=player1_initial_x;
+        player.y_pos=player1_initial_y;
+        player2.x_pos=player2_initial_x;
+        player2.y_pos=player2_initial_y;
+        ball.x_pos=ball_initial_x;
+        ball.y_pos=ball_initial_y;
+    }
 }
 
 void (movePlayer2)(){
     //idea of moving not good yet
     //pc player down (code duplicate)
     if(ball.vel_y>0){
-        if(player2.y_pos <= (arena.max_y - player2.height - player2.vel)){
-            player2.y_pos += player2.vel;
-        }
-        else if (player2.y_pos > (arena.max_y - player2.height - player2.vel))
-        {
-            player2.y_pos += (arena.max_y - player2.y_pos - player2.height);
-        }
+        playerDown(&player2);
     }
     //pc player up (code duplicate)
     else if(ball.vel_y<0){
-        if(player2.y_pos >= (arena.min_y + player2.vel)){
-            player2.y_pos -= player2.vel;
-        }
-        else if (player2.y_pos < (arena.min_y + player2.vel))
-        {
-            player2.y_pos -= (player2.y_pos - arena.min_y);
-        }
+        playerUp(&player2);
     }
 }

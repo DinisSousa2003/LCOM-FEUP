@@ -3,6 +3,7 @@
 extern uint8_t scancode[2];
 extern int menu_entries[];
 extern int counter;
+extern struct Player player;
 
 state_t state = MENU;
 
@@ -74,10 +75,10 @@ void (gameOnePlayerHandler)(int device){
             switch (scancode[0])
             {
             case KEY_W:
-                playerUp();
+                playerUp(&player);
                 break;
             case KEY_S:
-                playerDown();
+                playerDown(&player);
                 break;
             case KEY_A:
                 //go left
@@ -96,7 +97,7 @@ void (gameOnePlayerHandler)(int device){
                 movePlayer2();
                 drawGame();
                 drawArena();
-
+                
                 refresh_buffer();
             }
             break;

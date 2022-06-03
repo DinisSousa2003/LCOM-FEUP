@@ -40,18 +40,13 @@ enum game_image_t getNumberImg(int score){
     }
 }
 
-
 void (drawBoard)(){
-    draw_sprite(300, 10, game_images[getNumberImg(player.score)]);
-    draw_sprite(450, 10, game_images[getNumberImg(player2.score)]);
+    draw_sprite(300, 10, game_images[getNumberImg(player2.score)]);
+    draw_sprite(450, 10, game_images[getNumberImg(player.score)]);
 }
 
-
-void (drawPlayer)(){
-    draw_rectangle(player.color, player.x_pos, player.y_pos, player.width, player.height);
-}
-void (drawPlayer2)(){
-    draw_rectangle(player2.color, player2.x_pos, player2.y_pos, player2.width, player2.height);
+void (drawPlayer)(struct Player *p){
+    draw_rectangle(p->color, p->x_pos, p->y_pos, p->width, p->height);
 }
 
 void (drawBall)(){
@@ -60,8 +55,8 @@ void (drawBall)(){
 
 void (drawGame)(){
     draw_rectangle(0, 0, 0, 800, 600);
-    drawPlayer();
-    drawPlayer2();
+    drawPlayer(&player);
+    drawPlayer(&player2);
     drawBall();
 }
 
