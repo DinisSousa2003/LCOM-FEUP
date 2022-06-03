@@ -70,11 +70,11 @@ void (playerUp)(struct Player *p){
 }
 
 bool goal(){
-    if(ball.x_pos == arena.min_x && (ball.y_pos >=270 && ball.y_pos <= 330)){
+    if(ball.x_pos < 50 ){
         player.score++;
         return true;
     }
-     if(ball.x_pos == arena.max_x && (ball.y_pos >=270 && ball.y_pos <= 330)){
+     if(ball.x_pos > 750){
         player2.score++;
         return true;
     }
@@ -101,12 +101,19 @@ bool ballCollidesPlayer2(){
     return true;
 }
 void (moveBall)(){
-    if(ball.x_pos + ball.vel_x <= arena.min_x || ball.x_pos + ball.vel_x >= arena.max_x ){
-        ball.vel_x = -ball.vel_x;
+    
+    if (!(270 < ball.y_pos && ball.y_pos < 330))
+    {
+        if(ball.x_pos + ball.vel_x <= arena.min_x || ball.x_pos + ball.vel_x >= arena.max_x )
+        {
+            ball.vel_x = -ball.vel_x;
+        }    
     }
-    if(ball.y_pos + ball.vel_y <= arena.min_y || ball.y_pos + ball.vel_y >= arena.max_y ){
+    if(ball.y_pos + ball.vel_y <= arena.min_y || ball.y_pos + ball.vel_y >= arena.max_y )
+    {
         ball.vel_y = -ball.vel_y;
     }
+
     if(ballCollidesPlayer()){
         ball.vel_x = -ball.vel_x;
     }
