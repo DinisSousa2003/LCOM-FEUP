@@ -25,6 +25,10 @@ void (mainHandler)(int device){
             aboutHandler(device);
             break;
         }
+        case ENDGAME: {
+            endGameHandler(device);
+            break;
+        }
     }
 }
 
@@ -93,7 +97,12 @@ void (gameOnePlayerHandler)(int device){
         }
         case TIMER: {
             if(counter % REFRESH_RATE == 0){
-                moveBall();
+                if(moveBall()){
+                    if(gameWinner()){
+                        resetGame();
+                        state = ENDGAME;
+                    }
+                }
                 movePlayer2();
                 drawGame();
                 drawArena();
@@ -110,5 +119,26 @@ void (gameTwoPlayersHandler)(int device){
     return;
 }
 void (aboutHandler)(int device){
+    return;
+}
+
+void (endGameHandler)(int device){
+    switch (device)
+    {
+    case KEYBOARD:{
+        if(scancode[0] == KEY_ENTER){
+            state = MENU;
+        }
+        break;
+    }
+    case TIMER: {
+        if(counter % REFRESH_RATE == 0){
+            drawEndGame();
+            refresh_buffer();
+        }
+    }
+    default:
+        break;
+    }
     return;
 }

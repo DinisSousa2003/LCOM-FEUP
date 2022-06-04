@@ -24,12 +24,15 @@ int (getCurrentEntryImg)(){
 
 /*GAME MODEL*/
 
+int winner = 0;
+
 int player1_initial_x=650, player1_initial_y=300;
 int player2_initial_x=150, player2_initial_y=300;
 int ball_initial_x=400,ball_initial_y=300;
-struct Player player = {650, 300, 0xffffff, 30, 40, 20, 0};
 
-struct Player player2 = {150, 300, 0xffffff, 5, 40, 20, 0};
+struct Player player = {650, 300, 0x0000ff, 30, 40, 20, 0};
+
+struct Player player2 = {150, 300, 0xff0000, 5, 40, 20, 0};
 
 struct Ball ball = {400, 300, 0xffffff, 10, 10, 5, 5};
 
@@ -45,6 +48,17 @@ struct Arena getArena(){
 
 struct Ball getBall(){
     return ball;
+}
+
+void(resetGame()){
+    player.x_pos=player1_initial_x;
+    player.y_pos=player1_initial_y;
+    player.score=0;
+    player2.x_pos=player2_initial_x;
+    player2.y_pos=player2_initial_y;
+    player2.score=0;
+    ball.x_pos=ball_initial_x;
+    ball.y_pos=ball_initial_y;
 }
 
 
@@ -99,7 +113,8 @@ bool ballCollidesPlayer2(){
     }
     return true;
 }
-void (moveBall)(){
+
+bool (moveBall)(){
     
     if (!(260 < ball.y_pos && ball.y_pos < 340))
     {
@@ -128,7 +143,9 @@ void (moveBall)(){
         player2.y_pos=player2_initial_y;
         ball.x_pos=ball_initial_x;
         ball.y_pos=ball_initial_y;
+        return true;
     }
+    return false;
 }
 
 void (movePlayer2)(){
@@ -140,5 +157,19 @@ void (movePlayer2)(){
     //pc player up (code duplicate)
     else if(ball.vel_y<0){
         playerUp(&player2);
+    }
+}
+
+bool (gameWinner)(){
+    if(player.score == 5){
+        winner = 1;
+        return true;
+    }
+    else if(player2.score == 5){
+        winner = 2;
+        return true;
+    }
+    else{
+        return false;
     }
 }
