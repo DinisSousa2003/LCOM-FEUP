@@ -6,6 +6,7 @@
 #include "model.h"
 #include "images.h"
 #include "../video/video.h"
+#include "handlers.h"
 
 void (drawMenu)();
 

@@ -2,7 +2,7 @@
 
 #include <lcom/lcf.h>
 #include <stdio.h>
-
+#include "handlers.h"
 #include "images.h"
 
 void (addMenuEntry)();
@@ -45,5 +45,5 @@ void (resetGame)();
 void (playerUp)();
 void (playerDown)();
 bool (moveBall)();
-void (movePlayer2)();
+void (movePCPlayer)();
 bool (gameWinner)();

@@ -4,6 +4,7 @@ extern uint8_t scancode[2];
 extern int menu_entries[];
 extern int counter;
 extern struct Player player;
+extern struct Player player2;
 
 state_t state = MENU;
 
@@ -103,7 +104,7 @@ void (gameOnePlayerHandler)(int device){
                         state = ENDGAME;
                     }
                 }
-                movePlayer2();
+                movePCPlayer();
                 drawGame();
                 drawArena();
                 
@@ -116,7 +117,51 @@ void (gameOnePlayerHandler)(int device){
     }
 }
 void (gameTwoPlayersHandler)(int device){
-    return;
+    switch (device){
+        case KEYBOARD: {
+            switch (scancode[0])
+            {
+            case KEY_W:
+                playerUp(&player);
+                break;
+            case KEY_S:
+                playerDown(&player);
+                break;
+            case KEY_A:
+                //go left
+                break;
+            case KEY_D:
+                //go right
+                break;
+            case KEY_UP:
+                playerUp(&player2);
+                break;
+            case KEY_DOWN:
+                playerDown(&player2);
+                break;
+            default:
+                break;
+            }
+            break;
+        }
+        case TIMER: {
+            if(counter % REFRESH_RATE == 0){
+                if(moveBall()){
+                    if(gameWinner()){
+                        resetGame();
+                        state = ENDGAME;
+                    }
+                }
+                drawGame();
+                drawArena();
+                
+                refresh_buffer();
+            }
+            break;
+        }
+        default:
+            break;
+    }
 }
 void (aboutHandler)(int device){
     return;

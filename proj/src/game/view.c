@@ -13,8 +13,10 @@ void (drawMenu)(){
 /*GAME_VIEW*/
 extern struct Player player;
 extern struct Player player2;
+extern struct Player PCplayer;
 extern struct Arena arena;
 extern struct Ball ball;
+extern state_t state;
 
 enum game_image_t getNumberImg(int score){ 
     switch (score)
@@ -56,12 +58,19 @@ void (drawBall)(){
 void (drawGame)(){
     draw_rectangle(0, 0, 0, 800, 600);
     drawPlayer(&player);
-    drawPlayer(&player2);
+    if (state==TWOPGAME)
+    {
+       drawPlayer(&player2);
+    }
+    else{
+        drawPlayer(&PCplayer);
+    }
+    
     drawBall();
 }
 
 void (drawArena)(){
-    drawBoard(); //isto vai sair daqui
+    drawBoard(); //isto vai sair daqui?
     //bar of score
     vg_draw_hline((arena.width/2)+arena.min_x-15, 50, 30, 0xffffff);
 
