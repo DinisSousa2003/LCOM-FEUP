@@ -78,3 +78,15 @@ void (drawArena)(){
     vg_draw_vline(arena.max_x, arena.min_y, 160, 0xffffff);
     vg_draw_vline(arena.max_x, arena.min_y + 240, 160, 0xffffff);
 }
+
+/*ENG GAME VIEW*/
+extern int winner;
+
+void (drawEndGame)(){
+    if(winner == 1){
+        draw_sprite(0, 0, game_images[WON_P1_MENU_IMG]);
+    }
+    else if(winner == 2){
+        draw_sprite(0, 0, game_images[LOST_MENU_IMG]);
+    }
+}

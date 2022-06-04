@@ -21,7 +21,8 @@ typedef enum states {
     MENU,
     ONEPGAME,
     TWOPGAME,
-    ABOUT
+    ABOUT,
+    ENDGAME
 } state_t;
 
 
@@ -30,3 +31,4 @@ void (menuHandler)(int device);
 void (gameOnePlayerHandler)(int device);
 void (gameTwoPlayersHandler)(int device);
 void (aboutHandler)(int device);
+void (endGameHandler)(int device);

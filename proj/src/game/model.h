@@ -41,7 +41,9 @@ struct Arena{
 struct Player (getPlayer)();
 struct Arena (getArena)();
 struct Ball (getBall)();
+void (resetGame)();
 void (playerUp)();
 void (playerDown)();
-void (moveBall)();
+bool (moveBall)();
 void (movePlayer2)();
+bool (gameWinner)();

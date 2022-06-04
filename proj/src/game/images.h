@@ -13,8 +13,11 @@
 #include "../sprites/numbers/3.h"
 #include "../sprites/numbers/4.h"
 #include "../sprites/numbers/5.h"
+#include "../sprites/end/Lost_menu.h"
+#include "../sprites/end/Won_p1_menu.h"
+#include "../sprites/end/Won_p2_menu.h"
 
-#define NUM_IMAGES 10
+#define NUM_IMAGES 13
 
 enum game_image_t{
     MENU_IMG,
@@ -26,7 +29,10 @@ enum game_image_t{
     NUMBER2_IMG,
     NUMBER3_IMG,
     NUMBER4_IMG,
-    NUMBER5_IMG
+    NUMBER5_IMG,
+    LOST_MENU_IMG,
+    WON_P1_MENU_IMG,
+    WON_P2_MENU_IMG
 };
 
 xpm_image_t game_images[NUM_IMAGES];
