@@ -133,12 +133,19 @@ void (gameTwoPlayersHandler)(int device){
             case KEY_D:
                 //go right
                 break;
-            case KEY_UP:
-                playerUp(&player2);
-                break;
-            case KEY_DOWN:
-                playerDown(&player2);
-                break;
+            case KBC_TWO_BYTE: {
+                switch (scancode[1])
+                {
+                case KEY_UP:
+                    playerUp(&player2);
+                    break;
+                case KEY_DOWN:
+                    playerDown(&player2);
+                    break;
+                default:
+                    break;
+                }
+            }
             default:
                 break;
             }
