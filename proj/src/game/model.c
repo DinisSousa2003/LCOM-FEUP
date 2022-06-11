@@ -26,15 +26,15 @@ int (getCurrentEntryImg)(){
 
 int winner = 0;
 
-int player1_initial_x=650, player1_initial_y=300;
-int player2_initial_x=150, player2_initial_y=300;
+int player1_initial_x=150, player1_initial_y=300;
+int player2_initial_x=650, player2_initial_y=300;
 int ball_initial_x=400,ball_initial_y=300;
 
-struct Player player = {650, 300, 0x0000ff, 30, 40, 20, 0};
+struct Player player = {150, 300, 0x0000ff, 30, 40, 20, 0};
 
-struct Player player2 = {150, 300, 0xff0000, 30, 40, 20, 0};
+struct Player player2 = {650, 300, 0xff0000, 30, 40, 20, 0};
 
-struct Player PCplayer = {150, 300, 0xff0000, 5, 40, 20, 0};
+struct Player PCplayer = {650, 300, 0xff0000, 5, 40, 20, 0};
 
 struct Ball ball = {400, 300, 0xffffff, 10, 10, 5, 5};
 
@@ -99,11 +99,11 @@ void (playerUp)(struct Player *p){
 }
 
 bool goal(){
-    if(ball.x_pos < 50 ){
+    if(ball.x_pos > 750){
         player.score++;
         return true;
     }
-    if(ball.x_pos > 750){
+    if(ball.x_pos < 50){
         if (state==TWOPGAME){
             player2.score++;
         }else{
