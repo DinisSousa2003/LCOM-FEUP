@@ -43,8 +43,15 @@ enum game_image_t getNumberImg(int score){
 }
 
 void (drawBoard)(){
-    draw_sprite(300, 10, game_images[getNumberImg(player2.score)]);
-    draw_sprite(450, 10, game_images[getNumberImg(player.score)]);
+    if (state==TWOPGAME)
+    {
+        draw_sprite(450, 10, game_images[getNumberImg(player2.score)]);
+    }
+    else{
+        draw_sprite(450, 10, game_images[getNumberImg(PCplayer.score)]);
+
+    }
+    draw_sprite(300, 10, game_images[getNumberImg(player.score)]);
 }
 
 void (drawPlayer)(struct Player *p){
@@ -70,7 +77,7 @@ void (drawGame)(){
 }
 
 void (drawArena)(){
-    drawBoard(); //isto vai sair daqui?
+    drawBoard();
     //bar of score
     vg_draw_hline((arena.width/2)+arena.min_x-15, 50, 30, 0xffffff);
 
