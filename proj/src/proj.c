@@ -7,6 +7,7 @@
 
 #include "video/video.h"
 #include "keyboard/kbc.h"
+//#include "mouse/mouse.h"
 #include "game/handlers.h"
 #include "game/images.h"
 #include "game/view.h"
@@ -14,6 +15,7 @@
 extern uint8_t scancode[2];
 extern uint8_t data;
 extern bool full_code_ready, kbd_valid;
+extern bool mouse_valid, mouse_packet_ready;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -55,6 +57,7 @@ int(proj_main_loop)(int argc, char* argv[])
   message msg;
   int r;
 
+  uint8_t mouse_int_bit = 2;
   uint8_t timer_int_bit = 0;
   uint8_t kbc_int_bit = 1; 
 
@@ -64,9 +67,27 @@ int(proj_main_loop)(int argc, char* argv[])
   }
 
   if (timer_subscribe_int(&timer_int_bit) != OK){
-     printf("Error subscribing to timer.\n");
+    printf("Error subscribing to timer.\n");
     return 1;
   } 
+
+  if (mouse_subscribe_int(&mouse_int_bit)) {
+    printf("Error subscribing to kbc.\n");
+    return 1;
+  }
+  if (disable_mouse()){
+    printf("Error disabling mouse.\n");
+    return 1;
+  }
+  if(mouse_enbl_data_reporting()){
+    printf("Error enabiling data reporting on mouse.\n");
+    return 1;
+  }
+  if (enable_mouse()){
+    printf("Error enabling mouse.\n");
+    return 1;
+  }
+
 
   load_all_images();
 
@@ -91,6 +112,12 @@ int(proj_main_loop)(int argc, char* argv[])
                       timer_int_handler();
                       mainHandler(TIMER);
                   }
+
+                  if (msg.m_notify.interrupts & BIT(mouse_int_bit)) { /* subscribed interrupt */
+                      mouse_ih();
+                      if(mouse_valid & mouse_packet_ready) mainHandler(MOUSE);
+                  }
+
                   break;
               default:
                   break; /* no other notifications expected: do nothing */	
@@ -111,6 +138,23 @@ int(proj_main_loop)(int argc, char* argv[])
     printf("Error unsubscribing KBC.\n");
     return 1;
   } 
+  if (disable_mouse()){
+      printf("Error disabling mouse.\n");
+      return 1;
+  }
+  if(mouse_disable_data_reporting()){
+      printf("Error disabiling data reporting on mouse.\n");
+      return 1;
+  }
+  if (enable_mouse()){
+      printf("Error disabling mouse.\n");
+      return 1;
+  }
+  if (mouse_unsubscribe_int()){
+    printf("Error unsubscribing mouse.\n");
+    return 1;
+  }
+
 
 
   if(kbd_unsubscribe_int() != OK){

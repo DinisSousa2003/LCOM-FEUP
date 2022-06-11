@@ -1,6 +1,7 @@
 #include "handlers.h"
 
 extern uint8_t scancode[2];
+extern struct packet pp;
 extern int menu_entries[];
 extern int counter;
 extern struct Player player;
@@ -68,13 +69,19 @@ void (menuHandler)(int device){
             }
             break;
         }
+        case MOUSE: {
+            printf("%d\n", pp.delta_x);
+            printf("%d\n", pp.delta_y);
+            printf("%d\n", pp.lb);
+            printf("%d\n", pp.rb);
+            break;
+        }
         default:
             break;
     }
 }
 
 void (gameOnePlayerHandler)(int device){
-    printf("Player.\n");
     switch (device){
         case KEYBOARD: {
             switch (scancode[0])
