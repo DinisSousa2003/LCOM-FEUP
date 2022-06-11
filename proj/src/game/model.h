@@ -38,6 +38,14 @@ struct Arena{
     int width;
 };
 
+struct Mouse{
+    int x_pos;
+    int y_pos;
+    unsigned int color;
+    int height;
+    int width;
+};
+
 struct Player (getPlayer)();
 struct Arena (getArena)();
 struct Ball (getBall)();
@@ -47,3 +55,4 @@ void (playerDown)();
 bool (moveBall)();
 void (movePCPlayer)();
 bool (gameWinner)();
+void (moveMouse)(int x, int y);

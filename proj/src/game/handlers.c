@@ -114,9 +114,14 @@ void (gameOnePlayerHandler)(int device){
                 movePCPlayer();
                 drawGame();
                 drawArena();
+                drawMouse();
                 
                 refresh_buffer();
             }
+            break;
+        }
+        case MOUSE:{
+            moveMouse(pp.delta_x, pp.delta_y);
             break;
         }
         default:

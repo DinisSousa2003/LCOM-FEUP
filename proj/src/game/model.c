@@ -40,6 +40,8 @@ struct Ball ball = {400, 300, 0xffffff, 10, 10, 5, 5};
 
 struct Arena arena = {500, 100, 750, 50, 400, 700};
 
+struct Mouse mouse = {400, 300, 0xffff00, 5, 5};
+
 struct Player getPlayer(){
     return player;
 }
@@ -182,5 +184,23 @@ bool (gameWinner)(){
     }
     else{
         return false;
+    }
+}
+
+void (moveMouse)(int x, int y){
+    mouse.x_pos += x;
+    mouse.y_pos -= y;
+
+    if(mouse.x_pos < arena.min_x){
+        mouse.x_pos = arena.min_x;
+    }
+    if(mouse.x_pos > arena.max_x){
+        mouse.x_pos = arena.max_x;
+    }
+    if(mouse.y_pos < arena.min_y){
+        mouse.y_pos = arena.min_y;
+    }
+    if(mouse.y_pos > arena.max_y){
+        mouse.y_pos = arena.max_y;
     }
 }
