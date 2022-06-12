@@ -110,6 +110,7 @@ void (gameOnePlayerHandler)(int device){
                 drawGame();
                 drawArena();
                 drawMouse();
+                drawWall();
                 
                 refresh_buffer();
             }

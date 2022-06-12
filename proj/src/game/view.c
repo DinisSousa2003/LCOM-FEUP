@@ -17,6 +17,7 @@ extern struct Player PCplayer;
 extern struct Arena arena;
 extern struct Ball ball;
 extern struct Mouse mouse;
+extern struct Wall wall;
 extern state_t state;
 
 enum game_image_t getNumberImg(int score){ 
@@ -98,6 +99,12 @@ void (drawArena)(){
 
 void(drawMouse)(){
     draw_rectangle(mouse.color, mouse.x_pos, mouse.y_pos, mouse.width, mouse.height);
+}
+
+void(drawWall)(){
+    if(wall.active){
+        draw_rectangle(0xffffff, wall.x_pos, wall.y_pos, wall.width, wall.height);
+    }
 }
 
 /*ENG GAME VIEW*/
