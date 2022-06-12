@@ -196,13 +196,18 @@ bool (gameWinner)(){
         winner = 1;
         return true;
     }
-    else if(player2.score == 5){
-        winner = 2;
-        return true;
+    if (state==TWOPGAME){
+        if(player2.score == 5){
+            winner = 3;
+            return true;
+        } 
+    }else{
+         if(PCplayer.score == 5){
+            winner = 2;
+            return true;
+        } 
     }
-    else{
-        return false;
-    }
+    return false;   
 }
 
 void (moveMouse)(int x, int y){
