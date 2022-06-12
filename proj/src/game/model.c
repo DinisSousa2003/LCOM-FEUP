@@ -73,6 +73,7 @@ void resetPositions(){
     ball.vel_x=ball_initial_vel_x;
     ball.vel_y=ball_initial_vel_y;
 
+    wall.timeout=0;
     wall.active=false;
     wall.height=0;
     wall.width=0;
@@ -235,7 +236,7 @@ void (mouseActionLeft)(){
 }
 
 void (mouseActionRight)(){
-    wall.height = 40;
+    wall.height = 80;
     wall.width = 10;
     wall.x_pos = mouse.x_pos;
     wall.y_pos = mouse.y_pos;
@@ -243,13 +244,13 @@ void (mouseActionRight)(){
 }
 
 void (wallDecrease)(){
-    wall.height -= 8;
+    wall.height -= 4;
     if(wall.height == 0){
         wall.width = 0;
         wall.x_pos = 0;
         wall.y_pos = 0;
         wall.active = false;
-        wall.timeout = (60/REFRESH_RATE) * 20; //20 SECONDS
+        wall.timeout = (60/REFRESH_RATE) * 10; //10 SECONDS
     }
 }
 
