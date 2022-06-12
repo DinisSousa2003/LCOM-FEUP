@@ -10,6 +10,7 @@
 
 void (drawMenu)();
 
+void (drawWaitMenu)();
 void (drawBoard)();
 void (drawPlayer)();
 void (drawBall)();

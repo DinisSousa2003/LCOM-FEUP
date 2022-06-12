@@ -6,6 +6,7 @@ extern int menu_entries[];
 extern int counter;
 extern struct Player player;
 extern struct Player player2;
+extern uint8_t read_data;
 
 state_t state = MENU;
 
@@ -17,6 +18,10 @@ void (mainHandler)(int device){
         }
         case ONEPGAME: {
             gameOnePlayerHandler(device);
+            break;
+        }
+        case WAITING: {
+            waitingHandler(device);
             break;
         }
         case TWOPGAME: {
@@ -50,8 +55,12 @@ void (menuHandler)(int device){
                     refresh_buffer();
                 }
                 else if(getCurrentEntryImg() == PLAYER2_SELECTED_IMG){
-                    state = TWOPGAME;
+                    printf("2player\n");
+                    ser_init();
+                    state = WAITING;
+                    printf("state: %d\n", state);
                     clear_buffer();
+                    drawWaitMenu();
                     refresh_buffer();
                 }
                 else if(getCurrentEntryImg() == ABOUT){
@@ -128,6 +137,22 @@ void (gameOnePlayerHandler)(int device){
             break;
     }
 }
+void (waitingHandler)(int device){
+    switch (device)
+    {
+    case SERIALPORT:
+        if (ser_check_connection())
+            state = TWOPGAME;
+        break;
+    /*case TIMER:
+        if(counter % 120 == 0)
+            ser_transmit_data(SER_INIT);
+        break;*/
+    default:
+        break;
+    }
+}
+/*
 void (gameTwoPlayersHandler)(int device){
     switch (device){
         case KEYBOARD: {
@@ -177,6 +202,66 @@ void (gameTwoPlayersHandler)(int device){
                 refresh_buffer();
             }
             break;
+        }
+        default:
+            break;
+    }
+}
+*/
+
+void (gameTwoPlayersHandler)(int device){
+    switch (device){
+        case KEYBOARD: {
+            switch (scancode[0])
+            {
+            case KEY_W:
+                playerUp(&player);
+                ser_transmit_data(SER_PLAYER_UP);
+                break;
+            case KEY_S:
+                playerDown(&player);
+                ser_transmit_data(SER_PLAYER_DOWN);
+                break;
+            case KEY_A:
+                //go left
+                break;
+            case KEY_D:
+                //go right
+                break;
+            default:
+                break;
+            }
+            break;
+        }
+        case TIMER: {
+            if(counter % REFRESH_RATE == 0){
+                if(moveBall()){
+                    if(gameWinner()){
+                        resetGame();
+                        state = ENDGAME;
+                    }
+                }
+                drawGame();
+                drawArena();
+                
+                refresh_buffer();
+            }
+            break;
+        }
+        case SERIALPORT: {
+            switch (read_data)
+            {
+            case SER_PLAYER_UP:
+                printf("up\n");
+                playerUp(&player2);
+                break;
+            case SER_PLAYER_DOWN:
+                printf("down\n");
+                playerDown(&player2);
+                break;
+            default:
+                break;
+            }
         }
         default:
             break;

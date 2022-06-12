@@ -3,3 +3,4 @@
 trace.txt
 output.txt
 .vscode
+.gdbinit

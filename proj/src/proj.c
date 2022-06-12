@@ -7,10 +7,11 @@
 
 #include "video/video.h"
 #include "keyboard/kbc.h"
-//#include "mouse/mouse.h"
 #include "game/handlers.h"
 #include "game/images.h"
 #include "game/view.h"
+#include "serialport/serialport.h"
+#include "rtc/rtc.h"
 
 extern uint8_t scancode[2];
 extern uint8_t data;
@@ -60,6 +61,8 @@ int(proj_main_loop)(int argc, char* argv[])
   uint8_t mouse_int_bit = 2;
   uint8_t timer_int_bit = 0;
   uint8_t kbc_int_bit = 1; 
+  uint8_t rtc_int_bit = 8; 
+  uint8_t ser_int_bit = 4; 
 
   if (kbd_subscribe_int(&kbc_int_bit) != OK){
     printf("Error subscribing to keyboard.\n");
@@ -88,6 +91,17 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }
 
+  if (rtc_subscribe_int(&rtc_int_bit) != OK){
+    printf("Error subscribing to RTC.\n");
+    return 1;
+  } 
+  rtc_update_darkmode();
+
+  if (ser_subscribe_int(&ser_int_bit) != OK){
+    printf("Error subscribing to serial port.\n");
+    return 1;
+  } 
+  //ser_init();
 
   load_all_images();
 
@@ -118,6 +132,15 @@ int(proj_main_loop)(int argc, char* argv[])
                       if(mouse_valid & mouse_packet_ready) mainHandler(MOUSE);
                   }
 
+                  if (msg.m_notify.interrupts & BIT(rtc_int_bit)) { /* subscribed interrupt */
+                      rtc_ih();
+                  }
+
+                  if (msg.m_notify.interrupts & BIT(ser_int_bit)) { /* subscribed interrupt */
+                      ser_read_data();
+                      mainHandler(SERIALPORT);
+                  }
+
                   break;
               default:
                   break; /* no other notifications expected: do nothing */	
@@ -126,6 +149,8 @@ int(proj_main_loop)(int argc, char* argv[])
           /* no standard messages expected: do nothing */
       }
   }
+  printf("Finishing\n");
+  while (!ser_read_data()) printf("Read trash\n");
 
   //back to text
   if(vg_exit() != OK){
@@ -162,5 +187,14 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   } 
 
+  if(rtc_unsubscribe_int() != OK){
+    printf("Error unsubscribing RTC.\n");
+    return 1;
+  } 
+
+  if(ser_unsubscribe_int() != OK){
+    printf("Error unsubscribing serial port.\n");
+    return 1;
+  } 
   return 0;
 }

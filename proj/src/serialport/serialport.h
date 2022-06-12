@@ -7,6 +7,12 @@
 #define SER_IRQ     4
 #define SER_PORT    0x3F8
 
+#define SER_INIT    2
+#define SER_START   3
+
+#define SER_PLAYER_UP   4
+#define SER_PLAYER_DOWN 5
+
 #define SER_RBR 0 
 #define SER_THR 0
 
@@ -44,6 +50,7 @@ int (ser_read_lsr_status)(uint8_t* status);
 int (ser_read_data)();
 int (ser_transmit_data)(uint8_t data);
 int (ser_ih)();
+bool (ser_check_connection)();
 
 int (ser_subscribe_int)(uint8_t *bit_no);
 int (ser_unsubscribe_int)();

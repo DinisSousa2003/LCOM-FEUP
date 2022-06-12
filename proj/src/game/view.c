@@ -10,6 +10,10 @@ void (drawMenu)(){
     draw_sprite(0, 0, game_images[getCurrentEntryImg()]);
 }
 
+void (drawWaitMenu)() {
+    draw_sprite(0, 0, game_images[WAIT_MENU_IMG]);
+}
+
 /*GAME_VIEW*/
 extern struct Player player;
 extern struct Player player2;

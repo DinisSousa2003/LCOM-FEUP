@@ -7,6 +7,8 @@ void (load_all_images)(){
     xpm_load(PLAYER2_SELECTED_SPRITE, XPM_8_8_8_8, &game_images[PLAYER2_SELECTED_IMG]);
     xpm_load(ABOUT_SELECTED_SPRITE, XPM_8_8_8_8, &game_images[ABOUT_SELECTED_IMG]);
 
+    xpm_load(WAIT_MENU_SPRITE, XPM_8_8_8_8, &game_images[WAIT_MENU_IMG]);
+
     xpm_load(NUMBER0_SPRITE, XPM_8_8_8_8, &game_images[NUMBER0_IMG]);
     xpm_load(NUMBER1_SPRITE, XPM_8_8_8_8, &game_images[NUMBER1_IMG]);
     xpm_load(NUMBER2_SPRITE, XPM_8_8_8_8, &game_images[NUMBER2_IMG]);
