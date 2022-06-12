@@ -6,6 +6,7 @@ extern int menu_entries[];
 extern int counter;
 extern struct Player player;
 extern struct Player player2;
+extern struct Wall wall;
 
 state_t state = MENU;
 
@@ -70,10 +71,6 @@ void (menuHandler)(int device){
             break;
         }
         case MOUSE: {
-            printf("%d\n", pp.delta_x);
-            printf("%d\n", pp.delta_y);
-            printf("%d\n", pp.lb);
-            printf("%d\n", pp.rb);
             break;
         }
         default:
@@ -92,12 +89,6 @@ void (gameOnePlayerHandler)(int device){
             case KEY_S:
                 playerDown(&player);
                 break;
-            case KEY_A:
-                //go left
-                break;
-            case KEY_D:
-                //go right
-                break;
             default:
                 break;
             }
@@ -105,6 +96,10 @@ void (gameOnePlayerHandler)(int device){
         }
         case TIMER: {
             if(counter % REFRESH_RATE == 0){
+                if(counter % wall.decreaseRate == 0){
+                    wallDecrease();
+                }
+
                 if(moveBall()){
                     if(gameWinner()){
                         resetGame();
@@ -122,6 +117,12 @@ void (gameOnePlayerHandler)(int device){
         }
         case MOUSE:{
             moveMouse(pp.delta_x, pp.delta_y);
+            if(pp.lb){
+                mouseActionLeft();
+            }
+            if(pp.rb && !wall.active && wall.timeout == 0){
+                mouseActionRight();
+            }
             break;
         }
         default:
@@ -138,12 +139,6 @@ void (gameTwoPlayersHandler)(int device){
                 break;
             case KEY_S:
                 playerDown(&player);
-                break;
-            case KEY_A:
-                //go left
-                break;
-            case KEY_D:
-                //go right
                 break;
             case KBC_TWO_BYTE: {
                 switch (scancode[1])

@@ -46,6 +46,16 @@ struct Mouse{
     int width;
 };
 
+struct Wall{
+    int x_pos;
+    int y_pos;
+    int height;
+    int width;
+    bool active;
+    int decreaseRate;
+    int timeout;
+};
+
 struct Player (getPlayer)();
 struct Arena (getArena)();
 struct Ball (getBall)();
@@ -56,3 +66,6 @@ bool (moveBall)();
 void (movePCPlayer)();
 bool (gameWinner)();
 void (moveMouse)(int x, int y);
+void (mouseActionLeft)();
+void (mouseActionRight)();
+void (wallDecrease)();
