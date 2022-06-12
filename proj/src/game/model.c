@@ -219,20 +219,24 @@ void (moveMouse)(int x, int y){
     if(mouse.x_pos < arena.min_x){
         mouse.x_pos = arena.min_x;
     }
-    if(mouse.x_pos > arena.max_x){
+    if(mouse.x_pos + 10 > arena.max_x){ //10 from wall max width
         mouse.x_pos = arena.max_x;
     }
     if(mouse.y_pos < arena.min_y){
         mouse.y_pos = arena.min_y;
     }
-    if(mouse.y_pos > arena.max_y){
+    if(mouse.y_pos + 80 > arena.max_y){ //80 from wall max height
         mouse.y_pos = arena.max_y;
     }
 }
 
+int actionLeftTimeout = 0;
+
 void (mouseActionLeft)(){
     ball.vel_x *= 1.2;
     ball.vel_y *= 1.2;
+
+    actionLeftTimeout =  (60/REFRESH_RATE) * 10; //10 SECONDS
 }
 
 void (mouseActionRight)(){

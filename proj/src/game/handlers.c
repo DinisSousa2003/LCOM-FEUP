@@ -4,6 +4,7 @@ extern uint8_t scancode[2];
 extern struct packet pp;
 extern int menu_entries[];
 extern int counter;
+extern int actionLeftTimeout;
 extern struct Player player;
 extern struct Player player2;
 extern struct Wall wall;
@@ -107,6 +108,10 @@ void (gameOnePlayerHandler)(int device){
                     }
                 }
 
+                if(actionLeftTimeout > 0){
+                    actionLeftTimeout--;
+                }
+
                 if(moveBall()){
                     if(gameWinner()){
                         resetGame();
@@ -126,7 +131,7 @@ void (gameOnePlayerHandler)(int device){
         case MOUSE:{
             moveMouse(pp.delta_x, pp.delta_y);
 
-            if(pp.lb){
+            if(pp.lb && actionLeftTimeout == 0){
                 mouseActionLeft();
             }
 

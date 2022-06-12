@@ -54,6 +54,8 @@ void (drawBoard)(){
 
     }
     draw_sprite(300, 10, game_images[getNumberImg(player.score)]);
+    //draw_sprite(630, 40, game_images[POWER1_IMG]);
+    //draw_sprite(690, 40, game_images[POWER2_IMG]);
 }
 
 void (drawPlayer)(struct Player *p){
@@ -117,4 +119,8 @@ void (drawEndGame)(){
     else if(winner == 2){
         draw_sprite(0, 0, game_images[LOST_MENU_IMG]);
     }
+    else if(winner == 3){
+        draw_sprite(0, 0, game_images[WON_P2_MENU_IMG]);
+    }
 }
+I
