@@ -29,6 +29,7 @@ int winner = 0;
 int player1_initial_x=150, player1_initial_y=300;
 int player2_initial_x=650, player2_initial_y=300;
 int ball_initial_x=400,ball_initial_y=300;
+int ball_initial_vel_x=10, ball_initial_vel_y=10;
 
 struct Player player = {150, 300, 0x0000ff, 30, 40, 20, 0};
 
@@ -69,6 +70,8 @@ void resetPositions(){
 
     ball.x_pos=ball_initial_x;
     ball.y_pos=ball_initial_y;
+    ball.vel_x=ball_initial_vel_x;
+    ball.vel_y=ball_initial_vel_y;
 
     wall.active=false;
     wall.height=0;
@@ -108,7 +111,7 @@ void (playerUp)(struct Player *p){
     }
 }
 
-bool goal(){
+bool (goal)(){
     if(ball.x_pos > 750){
         player.score++;
         return true;
@@ -125,7 +128,7 @@ bool goal(){
     return false;
 }
 
-bool ballCollidesPlayer(struct Player *p){
+bool (ballCollidesPlayer)(struct Player *p){
     if(!((ball.y_pos + ball.height >= p->y_pos) && (ball.y_pos <= p->y_pos + p->height))){
         return false;
     }
@@ -135,7 +138,7 @@ bool ballCollidesPlayer(struct Player *p){
     return true;
 }
 
-bool ballCollidesWall(){
+bool (ballCollidesWall)(){
     if(!((ball.y_pos + ball.height >= wall.y_pos) && (ball.y_pos <= wall.y_pos + wall.height))){
         return false;
     }
@@ -227,11 +230,12 @@ void (moveMouse)(int x, int y){
 }
 
 void (mouseActionLeft)(){
-
+    ball.vel_x *= 1.2;
+    ball.vel_y *= 1.2;
 }
 
 void (mouseActionRight)(){
-    wall.height = 20;
+    wall.height = 40;
     wall.width = 10;
     wall.x_pos = mouse.x_pos;
     wall.y_pos = mouse.y_pos;
@@ -239,7 +243,7 @@ void (mouseActionRight)(){
 }
 
 void (wallDecrease)(){
-    wall.height -= 4;
+    wall.height -= 8;
     if(wall.height == 0){
         wall.width = 0;
         wall.x_pos = 0;

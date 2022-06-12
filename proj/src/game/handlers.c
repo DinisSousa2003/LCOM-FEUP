@@ -96,8 +96,15 @@ void (gameOnePlayerHandler)(int device){
         }
         case TIMER: {
             if(counter % REFRESH_RATE == 0){
-                if(counter % wall.decreaseRate == 0){
-                    wallDecrease();
+                if(wall.active){
+                    if (counter % wall.decreaseRate == 0){
+                        wallDecrease();
+                    }
+                }
+                else{
+                    if(wall.timeout>0){
+                        wall.timeout--;
+                    }
                 }
 
                 if(moveBall()){
@@ -118,9 +125,11 @@ void (gameOnePlayerHandler)(int device){
         }
         case MOUSE:{
             moveMouse(pp.delta_x, pp.delta_y);
+
             if(pp.lb){
                 mouseActionLeft();
             }
+
             if(pp.rb && !wall.active && wall.timeout == 0){
                 mouseActionRight();
             }
