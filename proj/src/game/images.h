@@ -21,7 +21,7 @@
 #include "../sprites/powerups/power2.h"
 #include "../sprites/sun.h"
 
-#define NUM_IMAGES 17
+#define NUM_IMAGES 17 /*!< Total number of images */
 
 /**
  * Enumerates each image in the game 

@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include "handlers.h"
 #include "images.h"
+
+#define ENTRIES 3 /*!< Total number of entries on the menu */
+
 /**
  * In the menu, it goes to the next option.
  * If there is no next option, the selection remains unchanged
