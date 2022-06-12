@@ -3,7 +3,7 @@
 
 static xpm_row_t const NUMBER0_SPRITE[] = {
 "52 83 140 2",
-"  	c #000000",
+"  	c #000000", 
 ". 	c #3D3D3D",
 "+ 	c #979797",
 "@ 	c #C0C0C0",
