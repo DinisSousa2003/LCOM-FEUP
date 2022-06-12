@@ -138,11 +138,19 @@ void (gameOnePlayerHandler)(int device){
     }
 }
 void (waitingHandler)(int device){
+    unsigned int ser_state;
     switch (device)
     {
     case SERIALPORT:
-        if (ser_check_connection())
-            state = TWOPGAME;
+        ser_state = ser_check_connection();
+        printf("state: %d\n",ser_state);
+        if (!ser_state) break;
+        if (ser_state == SER_INIT){
+            struct Player player_aux = player;
+            player = player2;
+            player2 = player_aux;
+        }
+        state = TWOPGAME;
         break;
     /*case TIMER:
         if(counter % 120 == 0)
@@ -216,11 +224,12 @@ void (gameTwoPlayersHandler)(int device){
             {
             case KEY_W:
                 playerUp(&player);
-                ser_transmit_data(SER_PLAYER_UP);
+                ser_transmit_data((uint8_t) (player.y_pos / player.vel));
                 break;
             case KEY_S:
                 playerDown(&player);
-                ser_transmit_data(SER_PLAYER_DOWN);
+                printf("befor pos: %d\n",player.y_pos);
+                ser_transmit_data((uint8_t) (player.y_pos / player.vel));
                 break;
             case KEY_A:
                 //go left
@@ -249,19 +258,9 @@ void (gameTwoPlayersHandler)(int device){
             break;
         }
         case SERIALPORT: {
-            switch (read_data)
-            {
-            case SER_PLAYER_UP:
-                printf("up\n");
-                playerUp(&player2);
-                break;
-            case SER_PLAYER_DOWN:
-                printf("down\n");
-                playerDown(&player2);
-                break;
-            default:
-                break;
-            }
+            if ((((int) read_data) * player2.vel) > 600) break;
+            player2.y_pos = ((int) read_data) * player2.vel;
+            printf("after pos: %d\n",player2.y_pos);
         }
         default:
             break;

@@ -56,17 +56,20 @@ int (ser_read_data)() {
     uint8_t status;
     ser_read_lsr_status(&status);
 
-    if (status & SER_DATA_READY) {
+    if (!(status & SER_DATA_READY)){
+        read_data = 0;
+        printf("Data not ready!\n");
+        return 1;
+    }
+    while (status & SER_DATA_READY) {
         if (util_sys_inb(SER_PORT + SER_RBR, &read_data)) {
             printf("Error reading recieved data from serial port!\n");
             return 1;    
         }
         printf("Read data: %d\n", read_data);
-        return 0;
+        ser_read_lsr_status(&status);
     }
-    read_data = 0;
-    printf("Data not ready!\n");
-    return 1;
+    return 0;
 }
 
 int (ser_transmit_data)(uint8_t data) {
@@ -102,15 +105,15 @@ int (ser_ih)() {
     return 0;
 }
 
-bool (ser_check_connection)() {
+int (ser_check_connection)() {
     if (read_data == SER_INIT){
         other_ready = true;
         ser_transmit_data(SER_START);
-        return true;
+        return SER_INIT;
     }
     if (read_data == SER_START)
-        return true;
-    return false;
+        return SER_START;
+    return 0;
 }
 
 int (ser_subscribe_int)(uint8_t *bit_no) {

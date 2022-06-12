@@ -50,7 +50,7 @@ int (ser_read_lsr_status)(uint8_t* status);
 int (ser_read_data)();
 int (ser_transmit_data)(uint8_t data);
 int (ser_ih)();
-bool (ser_check_connection)();
+int (ser_check_connection)();
 
 int (ser_subscribe_int)(uint8_t *bit_no);
 int (ser_unsubscribe_int)();
