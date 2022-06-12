@@ -19,4 +19,7 @@ void (load_all_images)(){
     xpm_load(LOST_MENU_SPRITE, XPM_8_8_8_8, &game_images[LOST_MENU_IMG]);
     xpm_load(WON_P1_MENU_SPRITE, XPM_8_8_8_8, &game_images[WON_P1_MENU_IMG]);
     xpm_load(WON_P2_MENU_SPRITE, XPM_8_8_8_8, &game_images[WON_P2_MENU_IMG]);
+
+    xpm_load(POWER1_SPRITE, XPM_8_8_8_8, &game_images[POWER1_IMG]);
+    xpm_load(POWER2_SPRITE, XPM_8_8_8_8, &game_images[POWER2_IMG]);
 }
