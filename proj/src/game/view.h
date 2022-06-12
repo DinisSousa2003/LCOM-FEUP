@@ -8,52 +8,52 @@
 #include "../video/video.h"
 #include "handlers.h"
 /**
- * @brief
+ * @brief Calls the functions responsible for drawing the menu
  * 
  */
-void (drastatwMenu)();
+void (drawMenu)();
 /**
- * @brief 
+ * @brief Calls the function responsible for drawing the waiting menu, while waiting other player
  * 
  */
 void (drawWaitMenu)();
 /**
- * @brief 
+ * @brief Calls the functions responsable for drawing the score board
  * 
  */
 void (drawBoard)();
 /**
- * @brief 
- * 
+ * @brief Receives a Player pointer and draws the Player's paddle in the arena according to the pointer data
+ * @param player
  */
-void (drawPlayer)();
+void (drawPlayer)(struct Player *p);
 /**
- * @brief 
+ * @brief Draws the Ball in the arena according to Ball's data
  * 
  */
 void (drawBall)();
 /**
- * @brief 
+ * @brief Calls the functions needed to draw the match
  * 
  */
 void (drawGame)();
 /**
- * @brief 
+ * @brief Draw the Arena and its boundaries
  * 
  */
 void (drawArena)();
 /**
- * @brief 
+ * @brief Draws the mouse cursor according to its position
  * 
  */
 void(drawMouse)();
 /**
- * @brief 
+ * @brief Draw the wall originated by a power-up
  * 
  */
 void(drawWall)();
 /**
- * @brief 
+ * @brief Draws an end-of-game message depending on whether the player wins or loses
  * 
  */
 void (drawEndGame)();
