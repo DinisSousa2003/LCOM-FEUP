@@ -16,6 +16,7 @@ extern struct Player player2;
 extern struct Player PCplayer;
 extern struct Arena arena;
 extern struct Ball ball;
+extern struct Mouse mouse;
 extern state_t state;
 
 enum game_image_t getNumberImg(int score){ 
@@ -95,6 +96,10 @@ void (drawArena)(){
     vg_draw_hline(arena.min_x, arena.max_y, arena.width, 0xffffff);
     vg_draw_vline(arena.max_x, arena.min_y, 160, 0xffffff);
     vg_draw_vline(arena.max_x, arena.min_y + 240, 160, 0xffffff);
+}
+
+void(drawMouse)(){
+    draw_rectangle(mouse.color, mouse.x_pos, mouse.y_pos, mouse.width, mouse.height);
 }
 
 /*ENG GAME VIEW*/

@@ -15,4 +15,6 @@ void (drawPlayer)();
 void (drawBall)();
 void (drawGame)();
 void (drawArena)();
+void(drawMouse)();
+
 void (drawEndGame)();
