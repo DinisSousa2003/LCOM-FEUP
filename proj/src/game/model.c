@@ -116,18 +116,9 @@ bool goal(){
     
     return false;
 }
-bool ballCollidesPlayerY(struct Player *p){
-    if(((ball.x_pos + ball.width >= p->x_pos) && (ball.x_pos <= p->x_pos + p->width))){
-        if(ball.y_pos + ball.height >= p->y_pos && (ball.y_pos <= p->y_pos + p->height)){
-            return true;
-        }
-    }
-
-    return false;
-}
 
 bool ballCollidesPlayer(struct Player *p){
-   if(!((ball.y_pos + ball.height >= p->y_pos) && (ball.y_pos <= p->y_pos + p->height))){
+    if(!((ball.y_pos + ball.height >= p->y_pos) && (ball.y_pos <= p->y_pos + p->height))){
         return false;
     }
     if(!((ball.x_pos + ball.width >= p->x_pos) && (ball.x_pos <= p->x_pos + p->width))){
@@ -137,7 +128,7 @@ bool ballCollidesPlayer(struct Player *p){
 }
 
 bool (moveBall)(){
-    //colides with arena
+    
     if (!(260 < ball.y_pos && ball.y_pos < 340))
     {
         if(ball.x_pos + ball.vel_x <= arena.min_x || ball.x_pos + ball.vel_x >= arena.max_x )
@@ -153,23 +144,14 @@ bool (moveBall)(){
     if(ballCollidesPlayer(&player)){
         ball.vel_x = -ball.vel_x;
     }
-    if(ballCollidesPlayerY(&player)){
-        ball.vel_y = -ball.vel_y;
-    }
     if (state==TWOPGAME){
         if(ballCollidesPlayer(&player2)){
             ball.vel_x = -ball.vel_x;
-        } 
-        if(ballCollidesPlayerY(&player2)){
-            ball.vel_y = -ball.vel_y;
-        }    
+        }     
     }else{
         if(ballCollidesPlayer(&PCplayer)){
             ball.vel_x = -ball.vel_x;
-        }  
-        if(ballCollidesPlayerY(&PCplayer)){
-        ball.vel_y = -ball.vel_y;
-    }   
+        }     
     }
     
     ball.x_pos += ball.vel_x;
