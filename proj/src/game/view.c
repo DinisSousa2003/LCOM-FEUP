@@ -1,13 +1,17 @@
 #include "view.h"
 
-
+#include "../rtc/rtc.h"
 /*MENU VIEW*/
 
 extern int menu_entries[];
+extern bool darkmode;
 
 void (drawMenu)(){
     draw_sprite(0, 0, game_images[MENU_IMG]);
     draw_sprite(0, 0, game_images[getCurrentEntryImg()]);
+    if(!darkmode){
+    draw_sprite(0, 0, game_images[SUN_IMG]);
+    }
 }
 
 void (drawWaitMenu)() {

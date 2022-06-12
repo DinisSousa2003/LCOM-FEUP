@@ -36,6 +36,7 @@
         "mouse.h": "c",
         "stdbool.h": "c",
         "kbc.h": "c",
-        "rtc.h": "c"
+        "rtc.h": "c",
+        "view.h": "c"
     }
 }

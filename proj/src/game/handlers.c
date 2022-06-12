@@ -260,7 +260,8 @@ void (gameTwoPlayersHandler)(int device){
         case SERIALPORT: {
             if ((((int) read_data) * player2.vel) > 600) break;
             player2.y_pos = ((int) read_data) * player2.vel;
-            printf("after pos: %d\n",player2.y_pos);
+            printf("after pos2: %d\n",player2.y_pos);
+            printf("after pos1: %d\n",player.y_pos);
         }
         default:
             break;
