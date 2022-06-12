@@ -2,8 +2,6 @@
 
 /*MENU MODEL*/
 
-#define ENTRIES 3
-
 int menu_entries[ENTRIES] = {PLAYER1_SELECTED_IMG, PLAYER2_SELECTED_IMG, ABOUT_SELECTED_IMG};
 int curEntry = 0;
 extern state_t state;
@@ -29,6 +27,7 @@ int winner = 0;
 int player1_initial_x=150, player1_initial_y=300;
 int player2_initial_x=650, player2_initial_y=300;
 int ball_initial_x=400,ball_initial_y=300;
+int ball_initial_vel_x=10, ball_initial_vel_y=10;
 
 struct Player player = {150, 300, 0x0000ff, 30, 40, 20, 0};
 
@@ -41,6 +40,10 @@ struct Ball ball = {400, 300, 0xffffff, 10, 10, 5, 5};
 struct Arena arena = {500, 100, 750, 50, 400, 700};
 
 struct Mouse mouse = {400, 300, 0xffff00, 5, 5};
+
+struct Wall wall = {0, 0, 0, 0, false, (60/REFRESH_RATE)*2 ,0};
+
+int actionLeftTimeout = 0;
 
 struct Player getPlayer(){
     return player;
@@ -67,6 +70,17 @@ void resetPositions(){
 
     ball.x_pos=ball_initial_x;
     ball.y_pos=ball_initial_y;
+    ball.vel_x=ball_initial_vel_x;
+    ball.vel_y=ball_initial_vel_y;
+
+    wall.timeout=0;
+    wall.active=false;
+    wall.height=0;
+    wall.width=0;
+    wall.x_pos=0;
+    wall.y_pos=0;
+
+    actionLeftTimeout = 0;
 }
 
 void(resetGame()){
@@ -100,7 +114,7 @@ void (playerUp)(struct Player *p){
     }
 }
 
-bool goal(){
+bool (goal)(){
     if(ball.x_pos > 750){
         player.score++;
         return true;
@@ -117,11 +131,21 @@ bool goal(){
     return false;
 }
 
-bool ballCollidesPlayer(struct Player *p){
+bool (ballCollidesPlayer)(struct Player *p){
     if(!((ball.y_pos + ball.height >= p->y_pos) && (ball.y_pos <= p->y_pos + p->height))){
         return false;
     }
     if(!((ball.x_pos + ball.width >= p->x_pos) && (ball.x_pos <= p->x_pos + p->width))){
+        return false;
+    }
+    return true;
+}
+
+bool (ballCollidesWall)(){
+    if(!((ball.y_pos + ball.height >= wall.y_pos) && (ball.y_pos <= wall.y_pos + wall.height))){
+        return false;
+    }
+    if(!((ball.x_pos + ball.width >= wall.x_pos) && (ball.x_pos <= wall.x_pos + wall.width))){
         return false;
     }
     return true;
@@ -152,6 +176,9 @@ bool (moveBall)(){
         if(ballCollidesPlayer(&PCplayer)){
             ball.vel_x = -ball.vel_x;
         }     
+    }
+    if(wall.active && ballCollidesWall()){
+        ball.vel_x = -ball.vel_x;
     }
     
     ball.x_pos += ball.vel_x;
@@ -199,13 +226,41 @@ void (moveMouse)(int x, int y){
     if(mouse.x_pos < arena.min_x){
         mouse.x_pos = arena.min_x;
     }
-    if(mouse.x_pos > arena.max_x){
-        mouse.x_pos = arena.max_x;
+    if(mouse.x_pos + 10 > arena.max_x){ //10 from wall max width
+        mouse.x_pos = arena.max_x - 10;
     }
     if(mouse.y_pos < arena.min_y){
         mouse.y_pos = arena.min_y;
     }
-    if(mouse.y_pos > arena.max_y){
-        mouse.y_pos = arena.max_y;
+    if(mouse.y_pos + 80 > arena.max_y){ //80 from wall max height
+        mouse.y_pos = arena.max_y - 80;
     }
 }
+
+void (mouseActionLeft)(){
+    ball.vel_x *= 1.4;
+    ball.vel_y *= 1.4;
+
+    actionLeftTimeout =  (60/REFRESH_RATE) * 15; //15 SECONDS
+}
+
+void (mouseActionRight)(){
+    wall.height = 80;
+    wall.width = 10;
+    wall.x_pos = mouse.x_pos;
+    wall.y_pos = mouse.y_pos;
+    wall.active = true;
+}
+
+void (wallDecrease)(){
+    wall.height -= 4;
+    wall.y_pos += 2;
+    if(wall.height == 0){
+        wall.width = 0;
+        wall.x_pos = 0;
+        wall.y_pos = 0;
+        wall.active = false;
+        wall.timeout = (60/REFRESH_RATE) * 10; //10 SECONDS
+    }
+}
+
