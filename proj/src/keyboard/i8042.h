@@ -3,19 +3,25 @@
 
 #include <lcom/lcf.h>
 
-#define DELAY_US    20000
+/** @defgroup i8042 i8042
+ * @{
+ *
+ * Constants for programming the i8042 Keyboard and Mouse and KBC.
+ */
 
-#define KBC_IRQ     1
-#define MOUSE_IRQ   12
+#define DELAY_US    20000 /**< @brief Delay between commands*/
 
-#define KBC_TWO_BYTE    0xE0
+#define KBC_IRQ     1 /**< @brief KBC interrupt line*/
+#define MOUSE_IRQ   12 /**< @brief mouse interrupt line*/
 
-#define KBC_ESC_KEY 0x81
+#define KBC_TWO_BYTE 0xE0 /**< @brief First byte of a two byte key*/
 
-#define KBC_OUT_BUF 0x60    //value of the "command byte" is read and written from here
-#define KBC_ARG_CMD 0x60
-#define KBC_ST_REG  0x64
-#define KBC_CMD_REG 0x64
+#define KBC_ESC_KEY 0x81 /**< @brief ESC key scancode*/
+
+#define KBC_OUT_BUF 0x60 /**< @brief Output buffer of kbc*/
+#define KBC_ARG_CMD 0x60 /**< @brief Argumment commands for kbc*/
+#define KBC_ST_REG  0x64 /**< @brief Status register of kbc*/
+#define KBC_CMD_REG 0x64 /**< @brief Command register of kbc*/
 
 
 //  Status register
@@ -28,17 +34,19 @@
 
 
 //  Keyboard-Related KBC Commands
-    /*  
-        Written using KBC_CMD_REG
-        Arguments are passed using 0x60 (KBC_ARG_CMD)
-        Return values ar passed in the KBC_OUT_BUF
-    */
+/*  
+    Written using KBC_CMD_REG
+    Arguments are passed using 0x60 (KBC_ARG_CMD)
+    Return values are passed in the KBC_OUT_BUF
+*/
 #define KBC_READ_CMD        0x20
 #define KBC_WRITE_CMD       0x60
 #define CHECK_KBC           0xAA    //0x55 if OK, 0xFC if error
 #define CHECK_KB_INTERFACE  0xAB    //0 if OK
 #define DISABLE_KBI         0xAD
 #define ENABLE_KBI          0xAE
+
+//  Mouse related KBC Commands
 #define DISABLE_MOUSE           0xA7
 #define ENABLE_MOUSE            0xA8
 #define CHECK_MOUSE_INTERFACE   0xA9    //0 if OK
@@ -55,6 +63,7 @@
 #define KBC_ENA_OBF_MOUSE   BIT(1)
 #define KBC_ENA_OBF_KB      BIT(0)
 
+// Scancodes for keyboard keys
 #define KEY_UP 0x48
 #define KEY_DOWN 0x50
 #define KEY_ENTER 0x1C
@@ -66,7 +75,6 @@
 //********* MOUSE ***************
 
 // Data from mouse
-
 #define MOUSE_Y_OVFL        BIT(7)
 #define MOUSE_X_OVFL        BIT(6)
 #define MOUSE_Y_SIGN        BIT(5)
@@ -76,6 +84,10 @@
 #define MOUSE_RIGHT_BUTT    BIT(1)
 #define MOUSE_LEFT_BUTT     BIT(0)
 
+//Arguments to the mouse commands
+    /*
+    Sent as args after a new call to command 0xD4 (WRITE_BYTE_TO_MOUSE)
+    */
 #define MCM_RESET               0xFF
 #define MCM_RESEND              0xFE
 #define MCM_SET_DEFAULTS        0xF6
@@ -93,9 +105,9 @@
 // acknowledgement is read from KBC_OUT_BUF within 25ms
 // (for multi-byte responses, the time between bytes should be lower than 20 ms)
 
-#define MCM_ACK     0xFA
-#define MCM_NACK    0xFE    //if recieved retry sending the command (all steps from start)
-#define MCM_ERROR   0xFC
+#define MCM_ACK     0xFA    /**< @brief Response when everything is OK*/
+#define MCM_NACK    0xFE    /**< @brief First invalid byte*/
+#define MCM_ERROR   0xFC    /**< @brief Second consecutive invalid byte*/
 
 
 #endif
