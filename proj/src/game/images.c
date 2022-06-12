@@ -22,4 +22,6 @@ void (load_all_images)(){
 
     xpm_load(POWER1_SPRITE, XPM_8_8_8_8, &game_images[POWER1_IMG]);
     xpm_load(POWER2_SPRITE, XPM_8_8_8_8, &game_images[POWER2_IMG]);
+    
+    xpm_load(SUN_SPRITE, XPM_8_8_8_8, &game_images[SUN_IMG]);
 }

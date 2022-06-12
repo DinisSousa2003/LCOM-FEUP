@@ -45,6 +45,8 @@ struct Mouse mouse = {400, 300, 0xffff00, 5, 5};
 
 struct Wall wall = {0, 0, 0, 0, false, (60/REFRESH_RATE)*2 ,0};
 
+int actionLeftTimeout = 0;
+
 struct Player getPlayer(){
     return player;
 }
@@ -79,6 +81,8 @@ void resetPositions(){
     wall.width=0;
     wall.x_pos=0;
     wall.y_pos=0;
+
+    actionLeftTimeout = 0;
 }
 
 void(resetGame()){
@@ -225,23 +229,21 @@ void (moveMouse)(int x, int y){
         mouse.x_pos = arena.min_x;
     }
     if(mouse.x_pos + 10 > arena.max_x){ //10 from wall max width
-        mouse.x_pos = arena.max_x;
+        mouse.x_pos = arena.max_x - 10;
     }
     if(mouse.y_pos < arena.min_y){
         mouse.y_pos = arena.min_y;
     }
     if(mouse.y_pos + 80 > arena.max_y){ //80 from wall max height
-        mouse.y_pos = arena.max_y;
+        mouse.y_pos = arena.max_y - 80;
     }
 }
 
-int actionLeftTimeout = 0;
-
 void (mouseActionLeft)(){
-    ball.vel_x *= 2;
-    ball.vel_y *= 2;
+    ball.vel_x *= 1.4;
+    ball.vel_y *= 1.4;
 
-    actionLeftTimeout =  (60/REFRESH_RATE) * 10; //10 SECONDS
+    actionLeftTimeout =  (60/REFRESH_RATE) * 15; //15 SECONDS
 }
 
 void (mouseActionRight)(){
@@ -254,6 +256,7 @@ void (mouseActionRight)(){
 
 void (wallDecrease)(){
     wall.height -= 4;
+    wall.y_pos += 2;
     if(wall.height == 0){
         wall.width = 0;
         wall.x_pos = 0;
