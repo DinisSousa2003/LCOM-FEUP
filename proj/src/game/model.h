@@ -76,6 +76,15 @@ struct Mouse{
     int width;          /*!< Width of the mouse */
 };
 
+struct Wall{
+    int x_pos;
+    int y_pos;
+    int height;
+    int width;
+    bool active;
+    int decreaseRate;
+    int timeout;
+};
 /**
  * Returns a default Player1 
  * @return
@@ -142,3 +151,6 @@ bool (gameWinner)();
  * @param y
  */
 void (moveMouse)(int x, int y);
+void (mouseActionLeft)();
+void (mouseActionRight)();
+void (wallDecrease)();

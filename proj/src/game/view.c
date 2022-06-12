@@ -21,7 +21,9 @@ extern struct Player PCplayer;
 extern struct Arena arena;
 extern struct Ball ball;
 extern struct Mouse mouse;
+extern struct Wall wall;
 extern state_t state;
+extern int actionLeftTimeout;
 
 enum game_image_t getNumberImg(int score){ 
     switch (score)
@@ -57,6 +59,12 @@ void (drawBoard)(){
 
     }
     draw_sprite(300, 10, game_images[getNumberImg(player.score)]);
+    if(actionLeftTimeout == 0){
+        draw_sprite(630, 40, game_images[POWER1_IMG]);
+    }
+    if(!wall.active){
+         draw_sprite(690, 40, game_images[POWER2_IMG]);
+    }
 }
 
 void (drawPlayer)(struct Player *p){
@@ -102,6 +110,12 @@ void (drawArena)(){
 
 void(drawMouse)(){
     draw_rectangle(mouse.color, mouse.x_pos, mouse.y_pos, mouse.width, mouse.height);
+}
+
+void(drawWall)(){
+    if(wall.active){
+        draw_rectangle(0xffffff, wall.x_pos, wall.y_pos, wall.width, wall.height);
+    }
 }
 
 /*ENG GAME VIEW*/

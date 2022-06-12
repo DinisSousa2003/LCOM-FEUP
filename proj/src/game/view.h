@@ -8,7 +8,7 @@
 #include "../video/video.h"
 #include "handlers.h"
 /**
- * 
+ * @brief
  * 
  */
 void (drastatwMenu)();
@@ -47,6 +47,11 @@ void (drawArena)();
  * 
  */
 void(drawMouse)();
+/**
+ * @brief 
+ * 
+ */
+void(drawWall)();
 /**
  * @brief 
  * 
