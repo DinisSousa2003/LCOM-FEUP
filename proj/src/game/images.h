@@ -19,8 +19,9 @@
 #include "../sprites/wait_menu.h"
 #include "../sprites/powerups/power1.h"
 #include "../sprites/powerups/power2.h"
+#include "../sprites/sun.h"
 
-#define NUM_IMAGES 16
+#define NUM_IMAGES 17
 
 /**
  * Enumerates each image in the game 
@@ -42,7 +43,8 @@ enum game_image_t{
     WON_P2_MENU_IMG,        /*!< Message that indicates that the Player2 has won */
     POWER1_IMG,             /*!< Power-Up-1 Icon */
     POWER2_IMG,             /*!< Power-Up-2 Icon */
-    WAIT_MENU_IMG           /*!< Wait menu image and layout */
+    WAIT_MENU_IMG,          /*!< Wait menu image and layout */
+    SUN_IMG
 };
 
 xpm_image_t game_images[NUM_IMAGES];
