@@ -24,7 +24,7 @@
 #define NUM_IMAGES 17 /*!< Total number of images */
 
 /**
- * Enumerates each image in the game 
+ * @brief Enumerates each image in the game 
  * 
  */
 enum game_image_t{
@@ -50,7 +50,7 @@ enum game_image_t{
 xpm_image_t game_images[NUM_IMAGES];
 
 /**
- * Load all images into the game
+ * @brief Load all images into the game
  * 
  */
 void (load_all_images)();
