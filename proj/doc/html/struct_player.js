@@ -1,10 +1,10 @@
 var struct_player =
 [
-    [ "color", "struct_player.html#a9da83121ea33b4df3dcb1aed3a9cca4a", null ],
-    [ "height", "struct_player.html#a682cd9664c9ea2e27c0f269d762bfa28", null ],
-    [ "score", "struct_player.html#ace6abae8d66534ad0a1fd6458f786a6e", null ],
-    [ "vel", "struct_player.html#a92d94212572216fbf994ddf36eb02de8", null ],
-    [ "width", "struct_player.html#ab112e078741802afd6c095ddea241b2f", null ],
-    [ "x_pos", "struct_player.html#a0c39d35f634039c19896f5fd53ffd83e", null ],
-    [ "y_pos", "struct_player.html#a326efc85a954e66de621918189b728da", null ]
+    [ "color", "struct_player.html#aeedc2afa1e522527db2235d0700a3b0d", null ],
+    [ "height", "struct_player.html#ad12fc34ce789bce6c8a05d8a17138534", null ],
+    [ "score", "struct_player.html#aef160b7437d94056f1dc59646cd5b87d", null ],
+    [ "vel", "struct_player.html#a2e839d402befe03988451b3a1f6f80cf", null ],
+    [ "width", "struct_player.html#a2474a5474cbff19523a51eb1de01cda4", null ],
+    [ "x_pos", "struct_player.html#af1617c91937fbd9d9d670940427d9b44", null ],
+    [ "y_pos", "struct_player.html#a375120430014d7e06dcc37d9ca4fcdb8", null ]
 ];

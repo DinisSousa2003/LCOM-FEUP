@@ -1,10 +1,10 @@
 var group__timer =
 [
     [ "timer_status_field_val", "uniontimer__status__field__val.html", [
-      [ "bcd", "group__timer.html#gad1c0daae1fe44fc16a05f435123a99f2", null ],
-      [ "byte", "group__timer.html#ga37d15361e9d111d7f18f943d85964f51", null ],
-      [ "count_mode", "group__timer.html#ga069cd58184fd977a3345d560f159037a", null ],
-      [ "in_mode", "group__timer.html#ga16c0028c537ce578196381bdc0cd97fd", null ]
+      [ "bcd", "group__timer.html#gaa2444cde256beeae6fb06bb7a5ebd0c9", null ],
+      [ "byte", "group__timer.html#ga96f44d20f1dbf1c8785a7bc99a46164c", null ],
+      [ "count_mode", "group__timer.html#gabd6e94a182fc2daff67dfb46f732644a", null ],
+      [ "in_mode", "group__timer.html#gad414fb8742e435f9bda1f199a6200645", null ]
     ] ],
     [ "timer_init", "group__timer.html#ga5cc20f14fd50625eea9b20f58fbe2a55", [
       [ "INVAL_val", "group__timer.html#gga5cc20f14fd50625eea9b20f58fbe2a55a829d958875d8e92068f1b07f858721a4", null ],
@@ -34,8 +34,8 @@ var group__timer =
     [ "timer_set_frequency", "group__timer.html#gaf2c04fa8e97ffa748fd3f612886a92a7", null ],
     [ "timer_subscribe_int", "group__timer.html#gac57a7e1140a7e00ad95ac5488d2a671b", null ],
     [ "timer_unsubscribe_int", "group__timer.html#gafabd21de449be154dd65d5fdb2d8045d", null ],
-    [ "timer_status_field_val::bcd", "group__timer.html#gad1c0daae1fe44fc16a05f435123a99f2", null ],
-    [ "timer_status_field_val::byte", "group__timer.html#ga37d15361e9d111d7f18f943d85964f51", null ],
-    [ "timer_status_field_val::count_mode", "group__timer.html#ga069cd58184fd977a3345d560f159037a", null ],
-    [ "timer_status_field_val::in_mode", "group__timer.html#ga16c0028c537ce578196381bdc0cd97fd", null ]
+    [ "timer_status_field_val::bcd", "group__timer.html#gaa2444cde256beeae6fb06bb7a5ebd0c9", null ],
+    [ "timer_status_field_val::byte", "group__timer.html#ga96f44d20f1dbf1c8785a7bc99a46164c", null ],
+    [ "timer_status_field_val::count_mode", "group__timer.html#gabd6e94a182fc2daff67dfb46f732644a", null ],
+    [ "timer_status_field_val::in_mode", "group__timer.html#gad414fb8742e435f9bda1f199a6200645", null ]
 ];

@@ -1,10 +1,10 @@
 var struct_wall =
 [
-    [ "active", "struct_wall.html#a7b6c677197e13c7e751cdaad7e4563d4", null ],
-    [ "decreaseRate", "struct_wall.html#ac02358d29fc2c38b26ca15ac2a60df14", null ],
-    [ "height", "struct_wall.html#a43fc6e0a203c50626a0e969c05bb941e", null ],
-    [ "timeout", "struct_wall.html#a78660bdbd127c8f2fc6d41eab996591b", null ],
-    [ "width", "struct_wall.html#a1cf4e9f291dbac5a901a9211179218a8", null ],
-    [ "x_pos", "struct_wall.html#a7eeaa2ea26c3cc90ff1c01b3038b002f", null ],
-    [ "y_pos", "struct_wall.html#ad908de462e38d388a113bef16699e513", null ]
+    [ "active", "struct_wall.html#a03c996f9fcf0e10baeb3e700be0c409a", null ],
+    [ "decreaseRate", "struct_wall.html#ab862aa46e28fcffcd4c149964c8c2444", null ],
+    [ "height", "struct_wall.html#ad12fc34ce789bce6c8a05d8a17138534", null ],
+    [ "timeout", "struct_wall.html#a493b57f443cc38b3d3df9c1e584d9d82", null ],
+    [ "width", "struct_wall.html#a2474a5474cbff19523a51eb1de01cda4", null ],
+    [ "x_pos", "struct_wall.html#af1617c91937fbd9d9d670940427d9b44", null ],
+    [ "y_pos", "struct_wall.html#a375120430014d7e06dcc37d9ca4fcdb8", null ]
 ];

@@ -18,5 +18,6 @@ var handlers_8c =
     [ "read_data", "handlers_8c.html#ac2e72b5a2e01b5b5ae740469f6c558b2", null ],
     [ "scancode", "handlers_8c.html#a01577ed8d3646775ae6a8e00d24c1d94", null ],
     [ "state", "handlers_8c.html#a499e7824037af983d0524a98081e7f0b", null ],
-    [ "wall", "handlers_8c.html#a92865b9fee2bc0725731ca6eaffeead0", null ]
+    [ "wall", "handlers_8c.html#a92865b9fee2bc0725731ca6eaffeead0", null ],
+    [ "winner", "handlers_8c.html#ac3897a350075920efc6bab8d04cc1215", null ]
 ];

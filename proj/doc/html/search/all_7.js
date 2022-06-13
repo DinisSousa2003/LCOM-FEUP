@@ -9,7 +9,7 @@ var searchData=
   ['ball_5finitial_5fy_6',['ball_initial_y',['../model_8c.html#a717f5796e8e05960b1efc59528e61fce',1,'model.c']]],
   ['ballcollidesplayer_7',['ballCollidesPlayer',['../model_8c.html#a4cf55b77cc02efad5aaebe5e3a79a7c6',1,'model.c']]],
   ['ballcollideswall_8',['ballCollidesWall',['../model_8c.html#a113f4b3fda8579a672c13893e8e2347a',1,'model.c']]],
-  ['bcd_9',['bcd',['../group__timer.html#gad1c0daae1fe44fc16a05f435123a99f2',1,'timer_status_field_val']]],
+  ['bcd_9',['bcd',['../group__timer.html#gaa2444cde256beeae6fb06bb7a5ebd0c9',1,'timer_status_field_val']]],
   ['bits_5fto_5fbyte_5fceil_10',['bits_to_byte_ceil',['../video_8c.html#ab4c6864582add7ea2f4a9014fd07baad',1,'bits_to_byte_ceil(unsigned bits_per_pixel):&#160;video.c'],['../video_8h.html#ab4c6864582add7ea2f4a9014fd07baad',1,'bits_to_byte_ceil(unsigned bits_per_pixel):&#160;video.c']]],
-  ['byte_11',['byte',['../group__timer.html#ga37d15361e9d111d7f18f943d85964f51',1,'timer_status_field_val']]]
+  ['byte_11',['byte',['../group__timer.html#ga96f44d20f1dbf1c8785a7bc99a46164c',1,'timer_status_field_val']]]
 ];

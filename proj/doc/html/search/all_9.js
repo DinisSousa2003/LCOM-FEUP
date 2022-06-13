@@ -2,7 +2,7 @@ var searchData=
 [
   ['darkmode_0',['darkmode',['../view_8c.html#aad078aa1776d7d886e8200f08329a2ca',1,'darkmode():&#160;rtc.c'],['../rtc_8c.html#aad078aa1776d7d886e8200f08329a2ca',1,'darkmode():&#160;rtc.c']]],
   ['data_1',['data',['../kbc_8c.html#a325819a8e492ac69542e8b31705af6e9',1,'data():&#160;kbc.c'],['../proj_8c.html#a325819a8e492ac69542e8b31705af6e9',1,'data():&#160;kbc.c']]],
-  ['decreaserate_2',['decreaseRate',['../struct_wall.html#ac02358d29fc2c38b26ca15ac2a60df14',1,'Wall']]],
+  ['decreaserate_2',['decreaseRate',['../struct_wall.html#ab862aa46e28fcffcd4c149964c8c2444',1,'Wall']]],
   ['delay_5fus_3',['DELAY_US',['../group__i8042.html#ga1a522aa19bcb695a9df30032a893bee3',1,'i8042.h']]],
   ['device_20handlers_4',['Device Handlers',['../group__handlers.html',1,'']]],
   ['devices_5',['devices',['../group__handlers.html#gaa4b88f24716e66e8d41400b00e8ae8ae',1,'handlers.h']]],

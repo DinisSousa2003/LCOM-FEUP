@@ -1,46 +1,46 @@
 var group__model =
 [
     [ "Player", "struct_player.html", [
-      [ "color", "struct_player.html#a9da83121ea33b4df3dcb1aed3a9cca4a", null ],
-      [ "height", "struct_player.html#a682cd9664c9ea2e27c0f269d762bfa28", null ],
-      [ "score", "struct_player.html#ace6abae8d66534ad0a1fd6458f786a6e", null ],
-      [ "vel", "struct_player.html#a92d94212572216fbf994ddf36eb02de8", null ],
-      [ "width", "struct_player.html#ab112e078741802afd6c095ddea241b2f", null ],
-      [ "x_pos", "struct_player.html#a0c39d35f634039c19896f5fd53ffd83e", null ],
-      [ "y_pos", "struct_player.html#a326efc85a954e66de621918189b728da", null ]
+      [ "color", "struct_player.html#aeedc2afa1e522527db2235d0700a3b0d", null ],
+      [ "height", "struct_player.html#ad12fc34ce789bce6c8a05d8a17138534", null ],
+      [ "score", "struct_player.html#aef160b7437d94056f1dc59646cd5b87d", null ],
+      [ "vel", "struct_player.html#a2e839d402befe03988451b3a1f6f80cf", null ],
+      [ "width", "struct_player.html#a2474a5474cbff19523a51eb1de01cda4", null ],
+      [ "x_pos", "struct_player.html#af1617c91937fbd9d9d670940427d9b44", null ],
+      [ "y_pos", "struct_player.html#a375120430014d7e06dcc37d9ca4fcdb8", null ]
     ] ],
     [ "Ball", "struct_ball.html", [
-      [ "color", "struct_ball.html#aef8abb32fb88fe5afda7c22ae5dd3b46", null ],
-      [ "height", "struct_ball.html#afe4267531b1e97c17591792ee52fec5b", null ],
-      [ "vel_x", "struct_ball.html#a23e6f14a8db39bfa2dae884c5fd6a448", null ],
-      [ "vel_y", "struct_ball.html#ac54414a62404a40bea4f06f033146336", null ],
-      [ "width", "struct_ball.html#adbf4c11d7e5b18b1915e005e837de9da", null ],
-      [ "x_pos", "struct_ball.html#adc97d2b0460b27896c3d12119bc0c69c", null ],
-      [ "y_pos", "struct_ball.html#a9a86f24f6b681ec461bb17a30ba4397c", null ]
+      [ "color", "struct_ball.html#aeedc2afa1e522527db2235d0700a3b0d", null ],
+      [ "height", "struct_ball.html#ad12fc34ce789bce6c8a05d8a17138534", null ],
+      [ "vel_x", "struct_ball.html#a762e5d3223ac3d030e967017b61cbb53", null ],
+      [ "vel_y", "struct_ball.html#a0da6adbd050c0f1bf04b34380b2131a9", null ],
+      [ "width", "struct_ball.html#a2474a5474cbff19523a51eb1de01cda4", null ],
+      [ "x_pos", "struct_ball.html#af1617c91937fbd9d9d670940427d9b44", null ],
+      [ "y_pos", "struct_ball.html#a375120430014d7e06dcc37d9ca4fcdb8", null ]
     ] ],
     [ "Arena", "struct_arena.html", [
-      [ "height", "struct_arena.html#ad360fafe2494ffacce475b3d1e7a65fc", null ],
-      [ "max_x", "struct_arena.html#a3df7ab9d3aed50c9c9febbdf5c50c84c", null ],
-      [ "max_y", "struct_arena.html#a496e36ea7cd21748445804463e219fa4", null ],
-      [ "min_x", "struct_arena.html#af7bbfc978e9098880826ccf830fd87e6", null ],
-      [ "min_y", "struct_arena.html#a807d0742ced419f790e4d2811d324c7e", null ],
-      [ "width", "struct_arena.html#ad8c7b9b4d92635db584d179575ea16af", null ]
+      [ "height", "struct_arena.html#ad12fc34ce789bce6c8a05d8a17138534", null ],
+      [ "max_x", "struct_arena.html#ad7b7359077f6690e77dea66d70abe213", null ],
+      [ "max_y", "struct_arena.html#a5f0d610eafd05463bc8771cfd8da1adc", null ],
+      [ "min_x", "struct_arena.html#a9c8ab844b7e5b610b7a4ac433ea148a1", null ],
+      [ "min_y", "struct_arena.html#a5fb18fec2bc2c10f230d683506bb5a8f", null ],
+      [ "width", "struct_arena.html#a2474a5474cbff19523a51eb1de01cda4", null ]
     ] ],
     [ "Mouse", "struct_mouse.html", [
-      [ "color", "struct_mouse.html#a033c6f152f90b4242bbd1744a95fd3b7", null ],
-      [ "height", "struct_mouse.html#a4868342af248e143b5a73e0d7e48c27f", null ],
-      [ "width", "struct_mouse.html#aadf9c804f2790d879eeefb596c6638e4", null ],
-      [ "x_pos", "struct_mouse.html#a946361a31c985652f0f1518de89416e2", null ],
-      [ "y_pos", "struct_mouse.html#aa35f1ffc72a4c726cb71f27ff7178dba", null ]
+      [ "color", "struct_mouse.html#aeedc2afa1e522527db2235d0700a3b0d", null ],
+      [ "height", "struct_mouse.html#ad12fc34ce789bce6c8a05d8a17138534", null ],
+      [ "width", "struct_mouse.html#a2474a5474cbff19523a51eb1de01cda4", null ],
+      [ "x_pos", "struct_mouse.html#af1617c91937fbd9d9d670940427d9b44", null ],
+      [ "y_pos", "struct_mouse.html#a375120430014d7e06dcc37d9ca4fcdb8", null ]
     ] ],
     [ "Wall", "struct_wall.html", [
-      [ "active", "struct_wall.html#a7b6c677197e13c7e751cdaad7e4563d4", null ],
-      [ "decreaseRate", "struct_wall.html#ac02358d29fc2c38b26ca15ac2a60df14", null ],
-      [ "height", "struct_wall.html#a43fc6e0a203c50626a0e969c05bb941e", null ],
-      [ "timeout", "struct_wall.html#a78660bdbd127c8f2fc6d41eab996591b", null ],
-      [ "width", "struct_wall.html#a1cf4e9f291dbac5a901a9211179218a8", null ],
-      [ "x_pos", "struct_wall.html#a7eeaa2ea26c3cc90ff1c01b3038b002f", null ],
-      [ "y_pos", "struct_wall.html#ad908de462e38d388a113bef16699e513", null ]
+      [ "active", "struct_wall.html#a03c996f9fcf0e10baeb3e700be0c409a", null ],
+      [ "decreaseRate", "struct_wall.html#ab862aa46e28fcffcd4c149964c8c2444", null ],
+      [ "height", "struct_wall.html#ad12fc34ce789bce6c8a05d8a17138534", null ],
+      [ "timeout", "struct_wall.html#a493b57f443cc38b3d3df9c1e584d9d82", null ],
+      [ "width", "struct_wall.html#a2474a5474cbff19523a51eb1de01cda4", null ],
+      [ "x_pos", "struct_wall.html#af1617c91937fbd9d9d670940427d9b44", null ],
+      [ "y_pos", "struct_wall.html#a375120430014d7e06dcc37d9ca4fcdb8", null ]
     ] ],
     [ "ENTRIES", "group__model.html#ga5f2e1fcf0055d20ce17664b1027bb9eb", null ],
     [ "addMenuEntry", "group__model.html#gac5e7c173213772b349ccecd660397b85", null ],

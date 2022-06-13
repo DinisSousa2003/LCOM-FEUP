@@ -17,6 +17,7 @@ var serialport_8h =
     [ "SER_THR", "group__serialport.html#ga3702c28928f73b9841ab8269f64177ed", null ],
     [ "SER_THR_EMPTY", "group__serialport.html#ga7828169194de03d2e2cd9d1b15d3ea78", null ],
     [ "SER_UART_READY", "group__serialport.html#gaadd7d6748f7ddf10b6f87e350d6d1b26", null ],
+    [ "SER_WINNER", "group__serialport.html#ga4c5aa3c4ff5b1d3721bad5a64dcfa9f9", null ],
     [ "ser_check_connection", "group__serialport.html#gab72ff27750fce4726c3861005ee392c6", null ],
     [ "ser_init", "group__serialport.html#ga0310282e052b0d6daacdcf32745aad12", null ],
     [ "ser_read_data", "group__serialport.html#gafe652e0add554a59ead8c1960eefb6b1", null ],
