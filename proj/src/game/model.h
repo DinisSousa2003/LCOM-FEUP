@@ -9,7 +9,7 @@
  * @{
  * 
  * Functions and data structures useful to the construction of the game
- * /
+ */
 #define ENTRIES 3 /*!< Total number of entries on the menu */
 
 /**

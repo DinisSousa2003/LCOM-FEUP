@@ -9,6 +9,7 @@
 #include "handlers.h"
 
 struct Player;
+
 /** @defgroup view Game View
  * 
  * Functions responsible for the output of the game on screen
