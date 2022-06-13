@@ -11,7 +11,7 @@
 #include "../rtc/rtc.h"
 #include "../serialport/serialport.h"
 
-#define REFRESH_RATE (60/30) /*!< Every two ticks of the timer >
+#define REFRESH_RATE (60/30) /*!< Every two ticks of the timer */
 
 /**
  * @brief Enumerates the devices used in the game
