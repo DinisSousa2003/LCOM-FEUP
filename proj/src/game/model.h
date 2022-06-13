@@ -5,6 +5,11 @@
 #include "handlers.h"
 #include "images.h"
 
+/** @defgroup model Game Model
+ * @{
+ * 
+ * Functions and data structures useful to the construction of the game
+ * /
 #define ENTRIES 3 /*!< Total number of entries on the menu */
 
 /**
@@ -166,3 +171,5 @@ void (mouseActionRight)();
  * 
  */
 void (wallDecrease)();
+
+/**@}*/
