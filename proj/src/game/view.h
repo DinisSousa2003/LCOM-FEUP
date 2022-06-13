@@ -7,6 +7,8 @@
 #include "images.h"
 #include "../video/video.h"
 #include "handlers.h"
+
+struct Player;
 /**
  * @brief Calls the functions responsible for drawing the menu
  * 

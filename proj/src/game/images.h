@@ -22,33 +22,44 @@
 #include "../sprites/sun.h"
 #include "../sprites/discoball.h"
 
-#define NUM_IMAGES 18
+/** @defgroup images images
+ * @{
+ *
+ * Constants for programming the i8254 Timer.
+ */
+
+
+#define NUM_IMAGES 18 /*!< @brief Total number od images to be load */
 
 /**
  * @brief Enumerates each image in the game 
  * 
  */
 enum game_image_t{
-    MENU_IMG,               /*!< Menu image and layout */
-    PLAYER1_SELECTED_IMG,   /*!< Player1 option selected in menu */
-    PLAYER2_SELECTED_IMG,   /*!< Player1 Vs Player2 option selected in menu */
-    ABOUT_SELECTED_IMG,     /*!< About option selected in menu */
-    NUMBER0_IMG,            /*!< Number "0" for score display */
-    NUMBER1_IMG,            /*!< Number "1" for score display */
-    NUMBER2_IMG,            /*!< Number "2" for score display */
-    NUMBER3_IMG,            /*!< Number "3" for score display */
-    NUMBER4_IMG,            /*!< Number "4" for score display */
-    NUMBER5_IMG,            /*!< Number "5" for score display */
-    LOST_MENU_IMG,          /*!< Message that indicates that the player has lost */
-    WON_P1_MENU_IMG,        /*!< Message that indicates that the Player1 has won */
-    WON_P2_MENU_IMG,        /*!< Message that indicates that the Player2 has won */
-    POWER1_IMG,             /*!< Power-Up-1 Icon */
-    POWER2_IMG,             /*!< Power-Up-2 Icon */
-    WAIT_MENU_IMG,          /*!< Wait menu image and layout */
-    SUN_IMG,
-    DISCO_IMG
+    MENU_IMG,               /*!< @brief Menu image and layout */
+    PLAYER1_SELECTED_IMG,   /*!< @brief Player1 option selected in menu */
+    PLAYER2_SELECTED_IMG,   /*!< @brief Player1 Vs Player2 option selected in menu */
+    ABOUT_SELECTED_IMG,     /*!< @brief About option selected in menu */
+    NUMBER0_IMG,            /*!< @brief Number "0" for score display */
+    NUMBER1_IMG,            /*!< @brief Number "1" for score display */
+    NUMBER2_IMG,            /*!< @brief Number "2" for score display */
+    NUMBER3_IMG,            /*!< @brief Number "3" for score display */
+    NUMBER4_IMG,            /*!< @brief Number "4" for score display */
+    NUMBER5_IMG,            /*!< @brief Number "5" for score display */
+    LOST_MENU_IMG,          /*!< @brief Message that indicates that the player has lost */
+    WON_P1_MENU_IMG,        /*!< @brief Message that indicates that the Player1 has won */
+    WON_P2_MENU_IMG,        /*!< @brief Message that indicates that the Player2 has won */
+    POWER1_IMG,             /*!< @brief Power-Up-1 Icon */
+    POWER2_IMG,             /*!< @brief Power-Up-2 Icon */
+    WAIT_MENU_IMG,          /*!< @brief Wait menu image and layout */
+    SUN_IMG,                /*!< @brief Sun image for a given RTC time */
+    DISCO_IMG               /*!< @brief Disco image for a given RTC time */
 };
 
+/**
+ * @brief Images data cointainer
+ * 
+ */
 xpm_image_t game_images[NUM_IMAGES];
 
 /**
@@ -56,3 +67,5 @@ xpm_image_t game_images[NUM_IMAGES];
  * 
  */
 void (load_all_images)();
+
+/**@}*/
