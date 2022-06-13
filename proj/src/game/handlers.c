@@ -235,7 +235,7 @@ void (gameTwoPlayersHandler)(int device){
                 resetPositions();
                 break;
             }
-            if (read_data == (SER_WINNER + 1) || read_data == (SER_WINNER + 3)) {
+            if (read_data == (SER_WINNER + 1) || read_data == (SER_WINNER + 2) || read_data == (SER_WINNER + 3)) {
                 winner = ((int) read_data) - SER_WINNER;
                 resetGame();
                 state = ENDGAME;
