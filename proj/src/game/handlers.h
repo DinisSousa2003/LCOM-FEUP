@@ -11,30 +11,37 @@
 #include "../rtc/rtc.h"
 #include "../serialport/serialport.h"
 
-#define REFRESH_RATE (60/30) /*!< Every two ticks of the timer >*/
+/** @defgroup handlers Device Handlers
+ * @{
+ * 
+ * Functions and data structures to handle the devices in the different game modes
+*/
+
+#define REFRESH_RATE (60/30) /*!< @brief Every two ticks of the timer */
+
 
 /**
  * @brief Enumerates the devices used in the game
  * 
  */
 enum devices {
-    TIMER,      /*!< Timer device */
-    KEYBOARD,   /*!< Keyboard device */
-    MOUSE,      /*!< Mouse device */
-    RTC,        /*!< RTC device */
-    SERIALPORT  /*!< Serial port device */
+    TIMER,      /*!< @brief Timer device */
+    KEYBOARD,   /*!< @brief Keyboard device */
+    MOUSE,      /*!< @brief Mouse device */
+    RTC,        /*!< @brief RTC device */
+    SERIALPORT  /*!< @brief Serial port device */
 };
 
 /**
  * @brief Enumerates the different possible game states
  */
 typedef enum states {
-    MENU,       /*!< Menu options */ 
-    ONEPGAME,   /*!< Player1 Vs Computer */
-    TWOPGAME,   /*!< Player1 Vs Player2  */
-    WAITING,    /*!< Waiting menu */
-    ABOUT,      /*!< Informations about the project */
-    ENDGAME     /*!< Informations about the end of the match */
+    MENU,       /*!< @brief Menu options */ 
+    ONEPGAME,   /*!< @brief Player1 Vs Computer */
+    TWOPGAME,   /*!< @brief Player1 Vs Player2  */
+    WAITING,    /*!< @brief Waiting menu */
+    ABOUT,      /*!< @brief Informations about the project */
+    ENDGAME     /*!< @brief Informations about the end of the match */
 } state_t;
 
 /** 
@@ -72,3 +79,5 @@ void (aboutHandler)(int device);
  * @param device
  */
 void (endGameHandler)(int device);
+
+/**@}*/

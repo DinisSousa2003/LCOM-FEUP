@@ -4,6 +4,12 @@
 
 #include "i8042.h"
 
+/** @defgroup kbc Keybord
+ * @{
+ * 
+ * Lab3 - Keybord Fuctions
+*/
+
 /**
  * @brief Control of keyboard interruptions
  * 
@@ -104,3 +110,5 @@ int (mouse_read_value)();
  * @return 0 if OK, 1 otherwise
  */
 int (parse_packet)();
+
+/**@}*/

@@ -2,55 +2,65 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+/** @defgroup rtc Real Time Clock
+ * @{
+ * 
+ * Real Time Clock
+*/
+
 /******** CONSTANTS ********/
 
-#define RTC_IRQ     8
+#define RTC_IRQ     8           /*!< @brief IRQ line of the RTC */
 
-#define RTC_ADDR_REG    0x70
-#define RTC_DATA_REG    0x71
+#define RTC_ADDR_REG    0x70    /*!< @brief Address to sent the byte offet of the RTC data */
+#define RTC_DATA_REG    0x71    /*!< @brief Address from which to read the selected data */
 
-#define RTC_SEC         0
-#define RTC_SEC_ALRM    1
-#define RTC_MIN         2
-#define RTC_MIN_ALRM    3
-#define RTC_HRS         4
-#define RTC_HRS_ALRM    5
-#define RTC_D_WEEK      6
-#define RTC_D_MONTH     7
-#define RTC_MONTH       8
-#define RTC_YEAR        9
-#define RTC_REG_A       10
-#define RTC_REG_B       11
-#define RTC_REG_C       12
-#define RTC_REG_D       13
+#define RTC_SEC         0       /*!< @brief Byte offset of the seconds */
+#define RTC_SEC_ALRM    1       /*!< @brief Byte offset of the seconds alarm */
+#define RTC_MIN         2       /*!< @brief Byte offset of the minutes */
+#define RTC_MIN_ALRM    3       /*!< @brief Byte offset of the minutes alarm */
+#define RTC_HRS         4       /*!< @brief Byte offset of the hours */
+#define RTC_HRS_ALRM    5       /*!< @brief Byte offset of the hours alarm */
+#define RTC_D_WEEK      6       /*!< @brief Byte offset of the day of the week */
+#define RTC_D_MONTH     7       /*!< @brief Byte offset of the day of the month */
+#define RTC_MONTH       8       /*!< @brief Byte offset of the month */
+#define RTC_YEAR        9       /*!< @brief Byte offset of the year */
+#define RTC_REG_A       10      /*!< @brief Byte offset of the register A */
+#define RTC_REG_B       11      /*!< @brief Byte offset of the register B */
+#define RTC_REG_C       12      /*!< @brief Byte offset of the register C */ 
+#define RTC_REG_D       13      /*!< @brief Byte offset of the register D */
 
-// reg A
-#define RTC_A_UIP           BIT(7)  //do not read or write
-#define RTC_A_RATE_SEL(n)   BIT(n)  //select rate for periodic interrupts & square wave output
+#define RTC_A_UIP       BIT(7)  /*!< @brief Bit in Register A signaling Update in Progress (do not read or write) */
 
-// reg B
-#define RTC_B_SET   BIT(7)  //inhibit updates
-#define RTC_B_PIE   BIT(6)  //periodic interrupt enable
-#define RTC_B_AIE   BIT(5)  //alarm interrupt enable
-#define RTC_B_UIE   BIT(4)  //update-ended interrupt enable
-#define RTC_B_SQWE  BIT(3)  //enable square-wave generation
-#define RTC_B_DM    BIT(2)  // 1:binary | 0: BCD
-#define RTC_B_24    BIT(1)  // 1: 0-23
-#define RTC_B_12    0xfd    // 0: 1-12
-#define RTC_B_DSE   BIT(0)  //enable daylight savings time
-
-// reg C --- MUST BE READ TO CLEAR FLAGS
-#define RTC_C_IRQF  BIT(7)  //if any event occured
-#define RTC_C_PF    BIT(6)  //set to 1 if an event of this type ocurred
-#define RTC_C_AF    BIT(5)
-#define RTC_C_UF    BIT(4)
 
 /******** FUNCTIONS ********/
 
+/**
+ * @brief Waits until Update in Progress in Register A is complete
+ * 
+ */
 void (rtc_wait_for_access)();
-int (rtc_init)();
-int (rtc_ih)();
+/**
+ * @brief Converts the number in BCD to hexadecimal
+ * 
+ * @param n 
+ * @return uint8_t 
+ */
+uint8_t rtc_convert_BCD(uint8_t n);
+/**
+ * Reads from hours address to check if it is night or day
+ * 
+ */
 void (rtc_update_darkmode)();
-
+/**
+ * @brief Subscribes to interrupts from the RTC
+ * @return 1 - error | 0 - success
+ */
 int (rtc_subscribe_int)(uint8_t *bit_no);
+/**
+ * @brief Unubscribes to interrupts from the RTC
+ * @return 1 - error | 0 - success
+ */
 int (rtc_unsubscribe_int)();
+
+/**@}*/

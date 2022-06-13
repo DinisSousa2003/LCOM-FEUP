@@ -132,10 +132,6 @@ int(proj_main_loop)(int argc, char* argv[])
                       if(mouse_valid & mouse_packet_ready) mainHandler(MOUSE);
                   }
 
-                  if (msg.m_notify.interrupts & BIT(rtc_int_bit)) { /* subscribed interrupt */
-                      rtc_ih();
-                  }
-
                   if (msg.m_notify.interrupts & BIT(ser_int_bit)) { /* subscribed interrupt */
                       ser_read_data();
                       mainHandler(SERIALPORT);

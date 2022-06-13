@@ -116,12 +116,30 @@ void (playerUp)(struct Player *p){
 
 bool (goal)(){
     if(ball.x_pos > 750){
-        player.score++;
+        if (state==TWOPGAME) {
+            if (player.x_pos < player2.x_pos) {
+                player.score++;
+                ser_transmit_data(SER_GOAL_2);
+            }
+            else {
+                player2.score++;
+                ser_transmit_data(SER_GOAL_1);
+            }
+        }else{
+            player.score++;
+        }        
         return true;
     }
     if(ball.x_pos < 50){
         if (state==TWOPGAME){
-            player2.score++;
+            if (player.x_pos < player2.x_pos) {
+                player2.score++;
+                ser_transmit_data(SER_GOAL_1);
+            }
+            else {
+                player.score++;
+                ser_transmit_data(SER_GOAL_2);
+            }
         }else{
             PCplayer.score++;
         }
@@ -201,16 +219,26 @@ void (movePCPlayer)(){
 }
 
 bool (gameWinner)(){
-    if(player.score == 5){
-        winner = 1;
-        return true;
-    }
     if (state==TWOPGAME){
+        if(player.score == 5){
+            if (player.color == 0x0000ff)
+                winner = 1;
+            else winner = 3;
+            ser_transmit_data((uint8_t) (SER_WINNER + 2));
+            return true;
+        }
         if(player2.score == 5){
-            winner = 3;
+            winner = 2;
+            if (player2.color == 0x0000ff)
+                ser_transmit_data((uint8_t) (SER_WINNER + 1));
+            else ser_transmit_data((uint8_t) (SER_WINNER + 3));
             return true;
         } 
     }else{
+        if(player.score == 5){
+            winner = 1;
+            return true;
+        }
          if(PCplayer.score == 5){
             winner = 2;
             return true;

@@ -8,7 +8,10 @@ extern int actionLeftTimeout;
 extern struct Player player;
 extern struct Player player2;
 extern uint8_t read_data;
+extern int player1_initial_x;
+extern int player2_initial_x;
 extern struct Wall wall;
+extern int winner;
 
 state_t state = MENU;
 
@@ -154,11 +157,23 @@ void (gameOnePlayerHandler)(int device){
     }
 }
 void (waitingHandler)(int device){
+    unsigned int ser_state;
     switch (device)
     {
     case SERIALPORT:
-        if (ser_check_connection())
-            state = TWOPGAME;
+        ser_state = ser_check_connection();
+        printf("state: %d\n",ser_state);
+        if (!ser_state) break;
+        state = TWOPGAME;
+        if (ser_state == SER_INIT){
+            int player1_initial_aux = player1_initial_x;
+            player1_initial_x = player2_initial_x;
+            player2_initial_x = player1_initial_aux;
+            unsigned int aux_color = player.color;
+            player.color = player2.color;
+            player2.color = aux_color;
+            resetPositions();
+        }
         break;
     /*case TIMER:
         if(counter % 120 == 0)
@@ -168,56 +183,6 @@ void (waitingHandler)(int device){
         break;
     }
 }
-/*
-void (gameTwoPlayersHandler)(int device){
-    switch (device){
-        case KEYBOARD: {
-            switch (scancode[0])
-            {
-            case KEY_W:
-                playerUp(&player);
-                break;
-            case KEY_S:
-                playerDown(&player);
-                break;
-            case KBC_TWO_BYTE: {
-                switch (scancode[1])
-                {
-                case KEY_UP:
-                    playerUp(&player2);
-                    break;
-                case KEY_DOWN:
-                    playerDown(&player2);
-                    break;
-                default:
-                    break;
-                }
-            }
-            default:
-                break;
-            }
-            break;
-        }
-        case TIMER: {
-            if(counter % REFRESH_RATE == 0){
-                if(moveBall()){
-                    if(gameWinner()){
-                        resetGame();
-                        state = ENDGAME;
-                    }
-                }
-                drawGame();
-                drawArena();
-                
-                refresh_buffer();
-            }
-            break;
-        }
-        default:
-            break;
-    }
-}
-*/
 
 void (gameTwoPlayersHandler)(int device){
     switch (device){
@@ -226,11 +191,12 @@ void (gameTwoPlayersHandler)(int device){
             {
             case KEY_W:
                 playerUp(&player);
-                ser_transmit_data(SER_PLAYER_UP);
+                ser_transmit_data((uint8_t) (player.y_pos / player.vel));
                 break;
             case KEY_S:
                 playerDown(&player);
-                ser_transmit_data(SER_PLAYER_DOWN);
+                printf("befor pos: %d\n",player.y_pos);
+                ser_transmit_data((uint8_t) (player.y_pos / player.vel));
                 break;
             case KEY_A:
                 //go left
@@ -259,19 +225,27 @@ void (gameTwoPlayersHandler)(int device){
             break;
         }
         case SERIALPORT: {
-            switch (read_data)
-            {
-            case SER_PLAYER_UP:
-                printf("up\n");
-                playerUp(&player2);
-                break;
-            case SER_PLAYER_DOWN:
-                printf("down\n");
-                playerDown(&player2);
-                break;
-            default:
+            if (read_data == SER_GOAL_1) {
+                player.score++;
+                resetPositions();
                 break;
             }
+            if (read_data == SER_GOAL_2) {
+                player2.score++;
+                resetPositions();
+                break;
+            }
+            if (read_data == (SER_WINNER + 1) || read_data == (SER_WINNER + 2) || read_data == (SER_WINNER + 3)) {
+                winner = ((int) read_data) - SER_WINNER;
+                resetGame();
+                state = ENDGAME;
+                break;
+            }
+            if ((((int) read_data) * player2.vel) > 600) break;
+            player2.y_pos = ((int) read_data) * player2.vel;
+            printf("after pos2: %d\n",player2.y_pos);
+            printf("after pos1: %d\n",player.y_pos);
+            break;
         }
         default:
             break;

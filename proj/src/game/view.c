@@ -1,6 +1,6 @@
 #include "view.h"
 
-
+#include "../rtc/rtc.h"
 /*MENU VIEW*/
 
 extern int menu_entries[];
@@ -10,7 +10,9 @@ void (drawMenu)(){
 
     draw_sprite(0, 0, game_images[MENU_IMG]);
     draw_sprite(0, 0, game_images[getCurrentEntryImg()]);
+    if(!darkmode){
     draw_sprite(0, 0, game_images[DISCO_IMG]);
+    }
 }
 
 void (drawWaitMenu)() {
@@ -55,13 +57,21 @@ enum game_image_t getNumberImg(int score){
 void (drawBoard)(){
     if (state==TWOPGAME)
     {
-        draw_sprite(450, 10, game_images[getNumberImg(player2.score)]);
+        if (player.x_pos < player2.x_pos) {
+            draw_sprite(450, 10, game_images[getNumberImg(player2.score)]);
+            draw_sprite(300, 10, game_images[getNumberImg(player.score)]);
+        } else {
+            draw_sprite(300, 10, game_images[getNumberImg(player2.score)]);
+            draw_sprite(450, 10, game_images[getNumberImg(player.score)]);
+        }
+        
     }
     else{
         draw_sprite(450, 10, game_images[getNumberImg(PCplayer.score)]);
-
+        draw_sprite(630, 40, game_images[POWER1_IMG]);
+        draw_sprite(690, 40, game_images[POWER2_IMG]);
+        draw_sprite(300, 10, game_images[getNumberImg(player.score)]);
     }
-    draw_sprite(300, 10, game_images[getNumberImg(player.score)]);
     if(actionLeftTimeout == 0){
         draw_sprite(630, 40, game_images[POWER1_IMG]);
     }
