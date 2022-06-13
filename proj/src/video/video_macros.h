@@ -38,7 +38,7 @@
 //BX for mode - BIT 14 must be set
 #define VBE_BX_SET_MODE BIT(14)
 
-#define GET_N_BYTE(w, n) ((w >> (8*n)) & 0xFF)
+#define GET_N_BYTE(w, n) ((w >> (8*n)) & 0xFF) /**< Get nth byte of a word */
 
 
 #endif /*_LCOM_VIDEO_MACROS_H_ */

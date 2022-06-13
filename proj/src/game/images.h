@@ -20,11 +20,12 @@
 #include "../sprites/powerups/power1.h"
 #include "../sprites/powerups/power2.h"
 #include "../sprites/sun.h"
+#include "../sprites/discoball.h"
 
-#define NUM_IMAGES 17
+#define NUM_IMAGES 18
 
 /**
- * Enumerates each image in the game 
+ * @brief Enumerates each image in the game 
  * 
  */
 enum game_image_t{
@@ -44,13 +45,14 @@ enum game_image_t{
     POWER1_IMG,             /*!< Power-Up-1 Icon */
     POWER2_IMG,             /*!< Power-Up-2 Icon */
     WAIT_MENU_IMG,          /*!< Wait menu image and layout */
-    SUN_IMG
+    SUN_IMG,
+    DISCO_IMG
 };
 
 xpm_image_t game_images[NUM_IMAGES];
 
 /**
- * Load all images into the game
+ * @brief Load all images into the game
  * 
  */
 void (load_all_images)();
