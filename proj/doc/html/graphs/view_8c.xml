@@ -58,6 +58,10 @@
 
 <para>Draws an end-of-game message depending on whether the player wins or loses. </para>
 </listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1gada296e3c248457584fc6702e98aa5df9">drawAbout</link> ()</para>
+
+<para>Draws about menu. </para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <simplesect>
@@ -96,7 +100,7 @@
 <indexterm><primary>getNumberImg</primary><secondary>view.c</secondary></indexterm>
 <indexterm><primary>view.c</primary><secondary>getNumberImg</secondary></indexterm>
 <para><computeroutput>enum <link linkend="_group__images_1ga50f04280d5437776a6ed5478ce534846">game_image_t</link> getNumberImg (int score)</computeroutput></para><para>
-Definition at line <link linkend="_view_8c_source_1l00033">33</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Definition at line <link linkend="_view_8c_source_1l00037">37</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
 </section>
 </section>
 <section>

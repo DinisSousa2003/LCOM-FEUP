@@ -1,5 +1,6 @@
 var view_8c =
 [
+    [ "drawAbout", "group__view.html#gada296e3c248457584fc6702e98aa5df9", null ],
     [ "drawArena", "group__view.html#ga3a53f2894b80e553e4e9754e2a1b9b5d", null ],
     [ "drawBall", "group__view.html#ga86cf8241a4f3a8daf2876e484636a650", null ],
     [ "drawBoard", "group__view.html#gabf33bd02905aaba8995c238e140295bb", null ],

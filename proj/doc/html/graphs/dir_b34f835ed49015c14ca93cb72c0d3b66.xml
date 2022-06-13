@@ -16,6 +16,8 @@ Directory dependency graph for end:<para>
         <itemizedlist>
             <listitem><para>file <link linkend="__lost__menu_8h">Lost_menu.h</link></para>
 </listitem>
+            <listitem><para>file <link linkend="__lost__menu__player_8h">Lost_menu_player.h</link></para>
+</listitem>
             <listitem><para>file <link linkend="__won__p1__menu_8h">Won_p1_menu.h</link></para>
 </listitem>
             <listitem><para>file <link linkend="__won__p2__menu_8h">Won_p2_menu.h</link></para>

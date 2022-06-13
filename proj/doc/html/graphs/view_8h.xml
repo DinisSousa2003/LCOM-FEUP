@@ -69,6 +69,10 @@ This graph shows which files directly or indirectly include this file:<para>
 
 <para>Draws an end-of-game message depending on whether the player wins or loses. </para>
 </listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1gada296e3c248457584fc6702e98aa5df9">drawAbout</link> ()</para>
+
+<para>Draws about menu. </para>
+</listitem>
         </itemizedlist>
 </simplesect>
 </section>

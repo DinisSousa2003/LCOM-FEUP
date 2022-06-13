@@ -45,6 +45,10 @@
 
 <para>Draws an end-of-game message depending on whether the player wins or loses. </para>
 </listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1gada296e3c248457584fc6702e98aa5df9">drawAbout</link> ()</para>
+
+<para>Draws about menu. </para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <section>
@@ -54,6 +58,26 @@
 </section>
 <section>
 <title>Function Documentation</title>
+<anchor xml:id="_group__view_1gada296e3c248457584fc6702e98aa5df9"/><section>
+    <title>drawAbout()</title>
+<indexterm><primary>drawAbout</primary><secondary>Game View</secondary></indexterm>
+<indexterm><primary>Game View</primary><secondary>drawAbout</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() drawAbout ( )</computeroutput></para><para>
+
+<para>Draws about menu. </para>
+</para>
+<para>
+Definition at line <link linkend="_view_8c_source_1l00153">153</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__view_gada296e3c248457584fc6702e98aa5df9_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
 <anchor xml:id="_group__view_1ga3a53f2894b80e553e4e9754e2a1b9b5d"/><section>
     <title>drawArena()</title>
 <indexterm><primary>drawArena</primary><secondary>Game View</secondary></indexterm>
@@ -63,7 +87,7 @@
 <para>Draw the <link linkend="_struct_arena">Arena</link> and its boundaries. </para>
 </para>
 <para>
-Definition at line <link linkend="_view_8c_source_1l00105">105</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Definition at line <link linkend="_view_8c_source_1l00107">107</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -83,7 +107,7 @@ Here is the call graph for this function:<para>
 <para>Draws the <link linkend="_struct_ball">Ball</link> in the arena according to <link linkend="_struct_ball">Ball</link>&apos;s data. </para>
 </para>
 <para>
-Definition at line <link linkend="_view_8c_source_1l00087">87</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Definition at line <link linkend="_view_8c_source_1l00089">89</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -103,7 +127,7 @@ Here is the call graph for this function:<para>
 <para>Calls the functions responsable for drawing the score board. </para>
 </para>
 <para>
-Definition at line <link linkend="_view_8c_source_1l00057">57</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Definition at line <link linkend="_view_8c_source_1l00061">61</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -123,7 +147,7 @@ Here is the call graph for this function:<para>
 <para>Draws an end-of-game message depending on whether the player wins or loses. </para>
 </para>
 <para>
-Definition at line <link linkend="_view_8c_source_1l00137">137</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Definition at line <link linkend="_view_8c_source_1l00139">139</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -143,7 +167,7 @@ Here is the call graph for this function:<para>
 <para>Calls the functions needed to draw the match. </para>
 </para>
 <para>
-Definition at line <link linkend="_view_8c_source_1l00091">91</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Definition at line <link linkend="_view_8c_source_1l00093">93</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -183,7 +207,7 @@ Here is the call graph for this function:<para>
 <para>Draws the mouse cursor according to its position. </para>
 </para>
 <para>
-Definition at line <link linkend="_view_8c_source_1l00124">124</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Definition at line <link linkend="_view_8c_source_1l00126">126</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -225,7 +249,7 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Definition at line <link linkend="_view_8c_source_1l00083">83</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Definition at line <link linkend="_view_8c_source_1l00085">85</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -245,7 +269,7 @@ Here is the call graph for this function:<para>
 <para>Calls the function responsible for drawing the waiting menu, while waiting other player. </para>
 </para>
 <para>
-Definition at line <link linkend="_view_8c_source_1l00018">18</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Definition at line <link linkend="_view_8c_source_1l00022">22</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -265,7 +289,7 @@ Here is the call graph for this function:<para>
 <para>Draw the wall originated by a power-up. </para>
 </para>
 <para>
-Definition at line <link linkend="_view_8c_source_1l00128">128</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
+Definition at line <link linkend="_view_8c_source_1l00130">130</link> of file <link linkend="_view_8c_source">view.c</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>

@@ -1,6 +1,6 @@
 <map id="game/images.c" name="game/images.c">
-<area shape="rect" id="node1" title=" " alt="" coords="1529,5,1640,32"/>
-<area shape="rect" id="node2" href="$images_8h.html" title=" " alt="" coords="1547,80,1622,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1703,5,1813,32"/>
+<area shape="rect" id="node2" href="$images_8h.html" title=" " alt="" coords="1721,80,1795,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,162,84,189"/>
 <area shape="rect" id="node4" title=" " alt="" coords="109,162,170,189"/>
 <area shape="rect" id="node5" href="$menu_8h.html" title=" " alt="" coords="195,162,351,189"/>
@@ -16,10 +16,12 @@
 <area shape="rect" id="node16" href="$_lost__menu_8h.html" title=" " alt="" coords="1944,155,2071,196"/>
 <area shape="rect" id="node17" href="$_won__p1__menu_8h.html" title=" " alt="" coords="2095,155,2224,196"/>
 <area shape="rect" id="node18" href="$_won__p2__menu_8h.html" title=" " alt="" coords="2248,155,2377,196"/>
-<area shape="rect" id="node19" href="$wait__menu_8h.html" title=" " alt="" coords="2401,162,2552,189"/>
-<area shape="rect" id="node20" href="$power1_8h.html" title=" " alt="" coords="2576,155,2708,196"/>
-<area shape="rect" id="node21" href="$power2_8h.html" title=" " alt="" coords="2732,155,2864,196"/>
-<area shape="rect" id="node22" href="$sun_8h.html" title=" " alt="" coords="2889,162,2998,189"/>
-<area shape="rect" id="node23" href="$discoball_8h.html" title=" " alt="" coords="3022,162,3161,189"/>
-<area shape="rect" id="node6" title=" " alt="" coords="1713,244,1803,271"/>
+<area shape="rect" id="node19" href="$_lost__menu__player_8h.html" title=" " alt="" coords="2401,155,2528,196"/>
+<area shape="rect" id="node20" href="$wait__menu_8h.html" title=" " alt="" coords="2552,162,2703,189"/>
+<area shape="rect" id="node21" href="$power1_8h.html" title=" " alt="" coords="2727,155,2859,196"/>
+<area shape="rect" id="node22" href="$power2_8h.html" title=" " alt="" coords="2883,155,3015,196"/>
+<area shape="rect" id="node23" href="$sun_8h.html" title=" " alt="" coords="3039,162,3149,189"/>
+<area shape="rect" id="node24" href="$discoball_8h.html" title=" " alt="" coords="3173,162,3311,189"/>
+<area shape="rect" id="node25" href="$about_8h.html" title=" " alt="" coords="3335,162,3455,189"/>
+<area shape="rect" id="node6" title=" " alt="" coords="1881,244,1971,271"/>
 </map>

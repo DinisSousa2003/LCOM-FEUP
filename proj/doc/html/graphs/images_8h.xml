@@ -17,11 +17,13 @@
 #include &quot;../sprites/end/Lost_menu.h&quot;
 #include &quot;../sprites/end/Won_p1_menu.h&quot;
 #include &quot;../sprites/end/Won_p2_menu.h&quot;
+#include &quot;../sprites/end/Lost_menu_player.h&quot;
 #include &quot;../sprites/wait_menu.h&quot;
 #include &quot;../sprites/powerups/power1.h&quot;
 #include &quot;../sprites/powerups/power2.h&quot;
 #include &quot;../sprites/sun.h&quot;
 #include &quot;../sprites/discoball.h&quot;
+#include &quot;../sprites/about.h&quot;
 </programlisting>Include dependency graph for images.h:<para>
     <informalfigure>
         <mediaobject>
@@ -43,7 +45,7 @@ This graph shows which files directly or indirectly include this file:<para>
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="_group__images_1ga9cb64526659b4bebea0d36565debb187">NUM_IMAGES</link>   18</para>
+            <listitem><para>#define <link linkend="_group__images_1ga9cb64526659b4bebea0d36565debb187">NUM_IMAGES</link>   20</para>
 
 <para>Total number od images to be load. </para>
 </listitem>
@@ -66,15 +68,17 @@ This graph shows which files directly or indirectly include this file:<para>
 <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a005bc580342043700cea0a08ecda201c">NUMBER4_IMG</link>
 , <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a9584074a47973e30035ea44ac19f93d7">NUMBER5_IMG</link>
 , <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a485529d59d2efb0aa461baa63c6afd30">LOST_MENU_IMG</link>
-, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a1db0d2cdba94409852adb864c56131c9">WON_P1_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846af61a1fe5c028fc23eb2c6e17a1cf1d73">LOST_MENU_PLAYER_IMG</link>
 , 
-<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846ab3b1b54a9a9207e135286723794d7abe">WON_P2_MENU_IMG</link>
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a1db0d2cdba94409852adb864c56131c9">WON_P1_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846ab3b1b54a9a9207e135286723794d7abe">WON_P2_MENU_IMG</link>
 , <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846aaa003715583e12e7d335e4f5ca250724">POWER1_IMG</link>
 , <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a68af1bef087f8e65f6eefe6e3796d358">POWER2_IMG</link>
-, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846ab316890bcc162088f6726dd12a74c187">WAIT_MENU_IMG</link>
 , 
-<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a4d9cc8fbf9e36ca5aef7447edd1bd95e">SUN_IMG</link>
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846ab316890bcc162088f6726dd12a74c187">WAIT_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a4d9cc8fbf9e36ca5aef7447edd1bd95e">SUN_IMG</link>
 , <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a1e17279e92245e136640874adec99d2f">DISCO_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a527aebcfaaac1410ac8684c4ae012440">ABOUT_PAGE_IMG</link>
  }</para>
 
 <para>Enumerates each image in the game. </para>

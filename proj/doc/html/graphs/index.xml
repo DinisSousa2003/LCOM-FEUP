@@ -60,10 +60,14 @@
     <xi:include href="serialport_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="serialport_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="serialport_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="about_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="about_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="discoball_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="discoball_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_lost__menu_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_lost__menu_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_lost__menu__player_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_lost__menu__player_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_won__p1__menu_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_won__p1__menu_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_won__p2__menu_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

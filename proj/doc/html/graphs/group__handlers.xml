@@ -234,7 +234,16 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Definition at line <link linkend="_handlers_8c_source_1l00254">254</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+Definition at line <link linkend="_handlers_8c_source_1l00248">248</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__handlers_gab87384990fed0586611e699156a7d24c_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
 </section>
 <anchor xml:id="_group__handlers_1gad133154583b6a956afcc4a3b7b15e0f4"/><section>
     <title>endGameHandler()</title>
@@ -267,7 +276,7 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Definition at line <link linkend="_handlers_8c_source_1l00258">258</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+Definition at line <link linkend="_handlers_8c_source_1l00269">269</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>

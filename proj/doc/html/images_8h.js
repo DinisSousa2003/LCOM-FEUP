@@ -13,13 +13,15 @@ var images_8h =
       [ "NUMBER4_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846a005bc580342043700cea0a08ecda201c", null ],
       [ "NUMBER5_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846a9584074a47973e30035ea44ac19f93d7", null ],
       [ "LOST_MENU_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846a485529d59d2efb0aa461baa63c6afd30", null ],
+      [ "LOST_MENU_PLAYER_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846af61a1fe5c028fc23eb2c6e17a1cf1d73", null ],
       [ "WON_P1_MENU_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846a1db0d2cdba94409852adb864c56131c9", null ],
       [ "WON_P2_MENU_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846ab3b1b54a9a9207e135286723794d7abe", null ],
       [ "POWER1_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846aaa003715583e12e7d335e4f5ca250724", null ],
       [ "POWER2_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846a68af1bef087f8e65f6eefe6e3796d358", null ],
       [ "WAIT_MENU_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846ab316890bcc162088f6726dd12a74c187", null ],
       [ "SUN_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846a4d9cc8fbf9e36ca5aef7447edd1bd95e", null ],
-      [ "DISCO_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846a1e17279e92245e136640874adec99d2f", null ]
+      [ "DISCO_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846a1e17279e92245e136640874adec99d2f", null ],
+      [ "ABOUT_PAGE_IMG", "group__images.html#gga50f04280d5437776a6ed5478ce534846a527aebcfaaac1410ac8684c4ae012440", null ]
     ] ],
     [ "load_all_images", "group__images.html#ga8a6bd0a6090487314e7d566acd5dbf7f", null ],
     [ "game_images", "group__images.html#ga34bcf325103efe12271f8e301024e7a9", null ]
