@@ -10,8 +10,8 @@
 #define SER_INIT    2
 #define SER_START   3
 
-#define SER_PLAYER_UP   4
-#define SER_PLAYER_DOWN 5
+#define SER_GOAL_1  40
+#define SER_GOAL_2  41
 
 #define SER_RBR 0 
 #define SER_THR 0

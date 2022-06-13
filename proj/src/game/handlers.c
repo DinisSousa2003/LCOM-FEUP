@@ -7,6 +7,10 @@ extern int counter;
 extern struct Player player;
 extern struct Player player2;
 extern uint8_t read_data;
+extern int player1_initial_x;
+extern int player2_initial_x;
+extern int player1_initial_color;
+extern int player2_initial_color;
 
 state_t state = MENU;
 
@@ -145,12 +149,19 @@ void (waitingHandler)(int device){
         ser_state = ser_check_connection();
         printf("state: %d\n",ser_state);
         if (!ser_state) break;
-        if (ser_state == SER_INIT){
-            struct Player player_aux = player;
-            player = player2;
-            player2 = player_aux;
-        }
         state = TWOPGAME;
+        if (ser_state == SER_INIT){
+            int player1_initial_aux = player1_initial_x;
+            player1_initial_x = player2_initial_x;
+            player2_initial_x = player1_initial_aux;
+            unsigned int aux_color = player.color;
+            player.color = player2.color;
+            player2.color = aux_color;
+            /*unsigned int aux_color = player1_initial_color;
+            player1_initial_color = player2_initial_color;
+            player2_initial_color = aux_color;*/
+            resetPositions();
+        }
         break;
     /*case TIMER:
         if(counter % 120 == 0)
@@ -160,62 +171,6 @@ void (waitingHandler)(int device){
         break;
     }
 }
-/*
-void (gameTwoPlayersHandler)(int device){
-    switch (device){
-        case KEYBOARD: {
-            switch (scancode[0])
-            {
-            case KEY_W:
-                playerUp(&player);
-                break;
-            case KEY_S:
-                playerDown(&player);
-                break;
-            case KEY_A:
-                //go left
-                break;
-            case KEY_D:
-                //go right
-                break;
-            case KBC_TWO_BYTE: {
-                switch (scancode[1])
-                {
-                case KEY_UP:
-                    playerUp(&player2);
-                    break;
-                case KEY_DOWN:
-                    playerDown(&player2);
-                    break;
-                default:
-                    break;
-                }
-            }
-            default:
-                break;
-            }
-            break;
-        }
-        case TIMER: {
-            if(counter % REFRESH_RATE == 0){
-                if(moveBall()){
-                    if(gameWinner()){
-                        resetGame();
-                        state = ENDGAME;
-                    }
-                }
-                drawGame();
-                drawArena();
-                
-                refresh_buffer();
-            }
-            break;
-        }
-        default:
-            break;
-    }
-}
-*/
 
 void (gameTwoPlayersHandler)(int device){
     switch (device){
@@ -258,9 +213,20 @@ void (gameTwoPlayersHandler)(int device){
             break;
         }
         case SERIALPORT: {
+            if (read_data == SER_GOAL_1) {
+                player.score++;
+                resetPositions();
+                break;
+            }
+            if (read_data == SER_GOAL_2) {
+                player2.score++;
+                resetPositions();
+                break;
+            }
             if ((((int) read_data) * player2.vel) > 600) break;
             player2.y_pos = ((int) read_data) * player2.vel;
             printf("after pos: %d\n",player2.y_pos);
+            break;
         }
         default:
             break;
