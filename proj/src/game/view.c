@@ -11,8 +11,12 @@ void (drawMenu)(){
     draw_sprite(0, 0, game_images[MENU_IMG]);
     draw_sprite(0, 0, game_images[getCurrentEntryImg()]);
     if(!darkmode){
-    draw_sprite(0, 0, game_images[DISCO_IMG]);
+        draw_sprite(0, 0, game_images[SUN_IMG]);
     }
+    else{
+        draw_sprite(0, 0, game_images[DISCO_IMG]);
+    }
+
 }
 
 void (drawWaitMenu)() {
