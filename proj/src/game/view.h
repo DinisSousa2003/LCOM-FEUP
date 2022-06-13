@@ -9,6 +9,10 @@
 #include "handlers.h"
 
 struct Player;
+/** @defgroup view Game View
+ * 
+ * Functions responsible for the output of the game on screen
+ */
 /**
  * @brief Calls the functions responsible for drawing the menu
  * 
@@ -59,3 +63,5 @@ void(drawWall)();
  * 
  */
 void (drawEndGame)();
+
+/**@}*/
