@@ -16,6 +16,7 @@
 #include "../sprites/end/Lost_menu.h"
 #include "../sprites/end/Won_p1_menu.h"
 #include "../sprites/end/Won_p2_menu.h"
+#include "../sprites/end/Lost_menu_player.h"
 #include "../sprites/wait_menu.h"
 #include "../sprites/powerups/power1.h"
 #include "../sprites/powerups/power2.h"
@@ -30,7 +31,7 @@
  */
 
 
-#define NUM_IMAGES 19 /*!< @brief Total number od images to be load */
+#define NUM_IMAGES 20 /*!< @brief Total number od images to be load */
 
 /**
  * @brief Enumerates each image in the game 
@@ -48,6 +49,7 @@ enum game_image_t{
     NUMBER4_IMG,            /*!< @brief Number "4" for score display */
     NUMBER5_IMG,            /*!< @brief Number "5" for score display */
     LOST_MENU_IMG,          /*!< @brief Message that indicates that the player has lost */
+    LOST_MENU_PLAYER_IMG,
     WON_P1_MENU_IMG,        /*!< @brief Message that indicates that the Player1 has won */
     WON_P2_MENU_IMG,        /*!< @brief Message that indicates that the Player2 has won */
     POWER1_IMG,             /*!< @brief Power-Up-1 Icon */

@@ -37,6 +37,7 @@
         "stdbool.h": "c",
         "kbc.h": "c",
         "rtc.h": "c",
-        "view.h": "c"
+        "view.h": "c",
+        "about.H": "cpp"
     }
 }
