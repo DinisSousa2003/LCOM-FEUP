@@ -23,31 +23,6 @@ uint8_t rtc_convert_BCD(uint8_t n) {
     return temp;
 }
 
-int (rtc_init)() {
-
-    //SET ALARMS
-    //rtc_wait_for_access();
-    uint8_t hour = 8;
-    sys_outb(RTC_ADDR_REG,RTC_HRS_ALRM);
-    sys_outb(RTC_DATA_REG,(uint32_t) hour);
-
-    uint32_t status;
-    //rtc_wait_for_access();
-    sys_outb(RTC_ADDR_REG,RTC_REG_B);
-    sys_inb(RTC_DATA_REG,&status);
-
-    uint8_t word = ((uint8_t) status) & RTC_B_12;
-    word |= RTC_B_AIE;
-
-    //rtc_wait_for_access();
-    sys_outb(RTC_ADDR_REG,RTC_HRS_ALRM);
-    sys_outb(RTC_DATA_REG,(uint32_t) word);
-
-    rtc_update_darkmode();
-    
-    return 0;
-}
-
 void (rtc_update_darkmode)() {
 
     rtc_wait_for_access();
@@ -61,16 +36,6 @@ void (rtc_update_darkmode)() {
     else darkmode = true;
 }
 
-int (rtc_ih)() {
-    uint32_t regC;
-    sys_outb(RTC_ADDR_REG, RTC_REG_C);
-    sys_inb(RTC_DATA_REG, &regC);
-    
-    if (regC & RTC_C_AF)
-        rtc_update_darkmode();
-    
-    return 0;
-}
 
 int (rtc_subscribe_int)(uint8_t *bit_no) {
   rtc_hook_id = *bit_no;
