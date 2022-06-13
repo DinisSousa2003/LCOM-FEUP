@@ -70,7 +70,7 @@ void (drawBoard)(){
         draw_sprite(450, 10, game_images[getNumberImg(PCplayer.score)]);
         draw_sprite(300, 10, game_images[getNumberImg(player.score)]);
         if(actionLeftTimeout == 0){
-        draw_sprite(630, 40, game_images[POWER1_IMG]);
+            draw_sprite(630, 40, game_images[POWER1_IMG]);
         }
         if(!wall.active){
             draw_sprite(690, 40, game_images[POWER2_IMG]);

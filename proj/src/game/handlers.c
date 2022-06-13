@@ -68,7 +68,7 @@ void (menuHandler)(int device){
                     drawWaitMenu();
                     refresh_buffer();
                 }
-                else if(getCurrentEntryImg() == ABOUT){
+                else if(getCurrentEntryImg() == ABOUT_SELECTED_IMG){
                     state = ABOUT;
                     clear_buffer();
                     refresh_buffer();
