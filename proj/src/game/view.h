@@ -65,5 +65,9 @@ void(drawWall)();
  * 
  */
 void (drawEndGame)();
-
+/**
+ * @brief Draws about menu 
+ * 
+ */
+void (drawAbout)();
 /**@}*/

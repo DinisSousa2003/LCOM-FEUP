@@ -21,6 +21,7 @@
 #include "../sprites/powerups/power2.h"
 #include "../sprites/sun.h"
 #include "../sprites/discoball.h"
+#include "../sprites/about.h"
 
 /** @defgroup images Game Images
  * @{
@@ -29,7 +30,7 @@
  */
 
 
-#define NUM_IMAGES 18 /*!< @brief Total number od images to be load */
+#define NUM_IMAGES 19 /*!< @brief Total number od images to be load */
 
 /**
  * @brief Enumerates each image in the game 
@@ -53,7 +54,8 @@ enum game_image_t{
     POWER2_IMG,             /*!< @brief Power-Up-2 Icon */
     WAIT_MENU_IMG,          /*!< @brief Wait menu image and layout */
     SUN_IMG,                /*!< @brief Sun image for a given RTC time */
-    DISCO_IMG               /*!< @brief Disco image for a given RTC time */
+    DISCO_IMG,              /*!< @brief Disco image for a given RTC time */
+    ABOUT_PAGE_IMG          /*!< @brief About page image */
 };
 
 /**

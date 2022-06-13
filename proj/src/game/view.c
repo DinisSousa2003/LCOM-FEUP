@@ -145,3 +145,9 @@ void (drawEndGame)(){
         draw_sprite(0, 0, game_images[WON_P2_MENU_IMG]);
     }
 }
+
+/*ABOUT VIEW*/
+
+void(drawAbout)(){
+    draw_sprite(0, 0, game_images[ABOUT_PAGE_IMG]);
+}

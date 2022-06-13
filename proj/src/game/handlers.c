@@ -198,12 +198,6 @@ void (gameTwoPlayersHandler)(int device){
                 printf("befor pos: %d\n",player.y_pos);
                 ser_transmit_data((uint8_t) (player.y_pos / player.vel));
                 break;
-            case KEY_A:
-                //go left
-                break;
-            case KEY_D:
-                //go right
-                break;
             default:
                 break;
             }
@@ -252,6 +246,23 @@ void (gameTwoPlayersHandler)(int device){
     }
 }
 void (aboutHandler)(int device){
+    switch (device)
+    {
+    case KEYBOARD:{
+        if(scancode[0] == KEY_ENTER){
+            state = MENU;
+        }
+        break;
+    }
+    case TIMER: {
+        if(counter % REFRESH_RATE == 0){
+            drawAbout();
+            refresh_buffer();
+        }
+    }
+    default:
+        break;
+    }
     return;
 }
 
