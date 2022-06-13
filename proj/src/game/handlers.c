@@ -11,6 +11,7 @@ extern uint8_t read_data;
 extern int player1_initial_x;
 extern int player2_initial_x;
 extern struct Wall wall;
+extern int winner;
 
 state_t state = MENU;
 
@@ -232,6 +233,12 @@ void (gameTwoPlayersHandler)(int device){
             if (read_data == SER_GOAL_2) {
                 player2.score++;
                 resetPositions();
+                break;
+            }
+            if (read_data == (SER_WINNER + 1) || read_data == (SER_WINNER + 3)) {
+                winner = ((int) read_data) - SER_WINNER;
+                resetGame();
+                state = ENDGAME;
                 break;
             }
             if ((((int) read_data) * player2.vel) > 600) break;

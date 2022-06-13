@@ -26,7 +26,6 @@ int winner = 0;
 
 int player1_initial_x=150, player1_initial_y=300;
 int player2_initial_x=650, player2_initial_y=300;
-unsigned int player1_initial_color = 0x0000ff, player2_initial_color = 0xff0000;
 int ball_initial_x=400,ball_initial_y=300;
 int ball_initial_vel_x=10, ball_initial_vel_y=10;
 
@@ -220,16 +219,26 @@ void (movePCPlayer)(){
 }
 
 bool (gameWinner)(){
-    if(player.score == 5){
-        winner = 1;
-        return true;
-    }
     if (state==TWOPGAME){
+        if(player.score == 5){
+            if (player.color == 0x0000ff)
+                winner = 1;
+            else winner = 3;
+            ser_transmit_data((uint8_t) (SER_WINNER + 2));
+            return true;
+        }
         if(player2.score == 5){
-            winner = 3;
+            winner = 2;
+            if (player2.color == 0x0000ff)
+                ser_transmit_data((uint8_t) (SER_WINNER + 1));
+            else ser_transmit_data((uint8_t) (SER_WINNER + 3));
             return true;
         } 
     }else{
+        if(player.score == 5){
+            winner = 1;
+            return true;
+        }
          if(PCplayer.score == 5){
             winner = 2;
             return true;

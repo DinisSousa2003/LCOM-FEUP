@@ -48,6 +48,7 @@ int (ser_read_data)() {
         }
         printf("Read data: %d\n", read_data);
         if (read_data == SER_GOAL_1 || read_data == SER_GOAL_2) return 0;
+        if (read_data == (SER_WINNER + 1) || read_data == (SER_WINNER + 3)) return 0;
         ser_read_lsr_status(&status);
     }
     return 0;

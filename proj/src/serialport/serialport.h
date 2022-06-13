@@ -13,6 +13,8 @@
 #define SER_GOAL_1  40      /*!< Message signaling goal from player 1 */
 #define SER_GOAL_2  41      /*!< Message signaling goal from player 2 */
 
+#define SER_WINNER  100     /*!< Winner number are transferred with this number added */
+
 #define SER_RBR 0           /*!< Byte offset of the Reciever Buffer Register */
 #define SER_THR 0           /*!< Byte offset of the Transmitter Holding Register */
 
