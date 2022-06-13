@@ -26,5 +26,4 @@ void (load_all_images)(){
     xpm_load(SUN_SPRITE, XPM_8_8_8_8, &game_images[SUN_IMG]);
     xpm_load(DISCO_SPRITE, XPM_8_8_8_8, &game_images[DISCO_IMG]);
 
-    xpm_load(ABOUT_PAGE_SPRITE, XPM_8_8_8_8, &game_images[ABOUT_PAGE_IMG]);
 }
