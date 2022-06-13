@@ -22,7 +22,7 @@
 #include "../sprites/sun.h"
 #include "../sprites/discoball.h"
 
-/** @defgroup images images
+/** @defgroup images Game Images
  * @{
  *
  * Constants for programming the i8254 Timer.

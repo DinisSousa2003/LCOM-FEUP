@@ -36,59 +36,63 @@ int (getCurrentEntryImg)();
  * 
  */
 struct Player{
-    int x_pos;          /*!< Position of the player on the x-axis */
-    int y_pos;          /*!< Position of the player on the y-axis */
-    unsigned int color; /*!< Colour with which the player is drawn  */
-    int vel;            /*!< Distance, on the y-axis, per unit of time */
-    int height;         /*!< Height of the player's paddle */
-    int width;          /*!< Width of the player's paddle */
-    int score;          /*!< Total points scored in the match */
+    int x_pos;          /*!< @brief Position of the player on the x-axis */
+    int y_pos;          /*!< @brief Position of the player on the y-axis */
+    unsigned int color; /*!< @brief Colour with which the player is drawn  */
+    int vel;            /*!< @brief Distance, on the y-axis, per unit of time */
+    int height;         /*!< @brief Height of the player's paddle */
+    int width;          /*!< @brief Width of the player's paddle */
+    int score;          /*!< @brief Total points scored in the match */
 };
 /**
  * @brief Struct that saves all data about the ball
  * 
  */
 struct Ball{
-    int x_pos;          /*!< Position of the ball on the x-axis */
-    int y_pos;          /*!< Position of the ball on the y-axis */
-    unsigned int color; /*!< Colour with which the ball is drawn  */
-    int vel_x;          /*!< Distance, on the x-axis, per unit of time */
-    int vel_y;          /*!< Distance, on the y-axis, per unit of time */
-    int height;         /*!< Height of the ball */
-    int width;          /*!< Width of the ball */
+    int x_pos;          /*!< @brief Position of the ball on the x-axis */
+    int y_pos;          /*!< @brief Position of the ball on the y-axis */
+    unsigned int color; /*!< @brief Colour with which the ball is drawn  */
+    int vel_x;          /*!< @brief Distance, on the x-axis, per unit of time */
+    int vel_y;          /*!< @brief Distance, on the y-axis, per unit of time */
+    int height;         /*!< @brief Height of the ball */
+    int width;          /*!< @brief Width of the ball */
 };
 /**
  * @brief Struct that saves all data about game arena
  * 
  */
 struct Arena{
-    int max_y;          /*!< Maximum value of position on y-axis */
-    int min_y;          /*!< Minimum value of position on y-axis */
-    int max_x;          /*!< Maximum value of position on x-axis */
-    int min_x;          /*!< Minimum value of position on y-axis */
-    int height;         /*!< Length of the arena */
-    int width;          /*!< Width of the arena */
+    int max_y;          /*!< @brief Maximum value of position on y-axis */
+    int min_y;          /*!< @brief Minimum value of position on y-axis */
+    int max_x;          /*!< @brief Maximum value of position on x-axis */
+    int min_x;          /*!< @brief Minimum value of position on y-axis */
+    int height;         /*!< @brief Length of the arena */
+    int width;          /*!< @brief Width of the arena */
 };
 /**
  * @brief Struct that saves all data about the mouse
  * 
  */
 struct Mouse{
-    int x_pos;          /*!< Position of the mouse on the x-axis */
-    int y_pos;          /*!< Position of the mouse on the y-axis */
-    unsigned int color; /*!< Colour with which the mouse is drawn  */
-    int height;         /*!< Lenght of the mouse */
-    int width;          /*!< Width of the mouse */
+    int x_pos;          /*!< @brief Position of the mouse on the x-axis */
+    int y_pos;          /*!< @brief Position of the mouse on the y-axis */
+    unsigned int color; /*!< @brief Colour with which the mouse is drawn  */
+    int height;         /*!< @brief Lenght of the mouse */
+    int width;          /*!< @brief Width of the mouse */
 };
 
+/**
+ * @brief Struct that saves all data about the wall (origianted by a power-up)
+ * 
+ */
 struct Wall{
-    int x_pos;
-    int y_pos;
-    int height;
-    int width;
-    bool active;
-    int decreaseRate;
-    int timeout;
+    int x_pos;          /*!< @brief Position of the Wall on the x-axis */
+    int y_pos;          /*!< @brief Position of the Wall on the y-axis */
+    int height;         /*!< @brief Lenght of the Wall */
+    int width;          /*!< @brief Width of the Wall */
+    bool active;        /*!< @brief true if the power-up is activated, false otherwise */
+    int decreaseRate;   /*!< @brief Rate at which the Wall is reducing in size */
+    int timeout;        /*!< @brief Time needed to use the power-up again*/
 };
 /**
  * @brief Returns a default Player1 

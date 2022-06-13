@@ -11,7 +11,7 @@
 #include "../rtc/rtc.h"
 #include "../serialport/serialport.h"
 
-/** @defgroup handlers handlers
+/** @defgroup handlers Device Handlers
  * @{
  * 
  * Functions and data structures to handle the devices in the different game modes
