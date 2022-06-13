@@ -26,6 +26,7 @@ int winner = 0;
 
 int player1_initial_x=150, player1_initial_y=300;
 int player2_initial_x=650, player2_initial_y=300;
+unsigned int player1_initial_color = 0x0000ff, player2_initial_color = 0xff0000;
 int ball_initial_x=400,ball_initial_y=300;
 int ball_initial_vel_x=10, ball_initial_vel_y=10;
 
@@ -116,12 +117,30 @@ void (playerUp)(struct Player *p){
 
 bool (goal)(){
     if(ball.x_pos > 750){
-        player.score++;
+        if (state==TWOPGAME) {
+            if (player.x_pos < player2.x_pos) {
+                player.score++;
+                ser_transmit_data(SER_GOAL_2);
+            }
+            else {
+                player2.score++;
+                ser_transmit_data(SER_GOAL_1);
+            }
+        }else{
+            player.score++;
+        }        
         return true;
     }
     if(ball.x_pos < 50){
         if (state==TWOPGAME){
-            player2.score++;
+            if (player.x_pos < player2.x_pos) {
+                player2.score++;
+                ser_transmit_data(SER_GOAL_1);
+            }
+            else {
+                player.score++;
+                ser_transmit_data(SER_GOAL_2);
+            }
         }else{
             PCplayer.score++;
         }
