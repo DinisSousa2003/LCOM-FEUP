@@ -10,6 +10,11 @@
 
 struct Player;
 
+/** @defgroup view Game View
+ * @{
+ * 
+ * Functions responsible for the output of the game on screen
+ */
 /**
  * @brief Calls the functions responsible for drawing the menu
  * 
@@ -27,7 +32,7 @@ void (drawWaitMenu)();
 void (drawBoard)();
 /**
  * @brief Receives a Player pointer and draws the Player's paddle in the arena according to the pointer data
- * @param player
+ * @param p player pointer that containt data about the player
  */
 void (drawPlayer)(struct Player *p);
 /**
@@ -60,3 +65,5 @@ void(drawWall)();
  * 
  */
 void (drawEndGame)();
+
+/**@}*/
